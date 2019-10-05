@@ -124,12 +124,12 @@
 * Network ACL is on the subnet level
 * Security groups are on the instance level
 * Evaluation order
-1) Network ACL Inbound rules
-2) Security group Inbound rules
-	1) Request reached the instance
-3) Outbound traffic allowed (__stateful__)
-	1) Even if there is a Deny for that outbound rule, because it was allowed in, the outbound will always be allowed!
-4) Network ACL Outbound rules (__stateless__, aka always evaluated) 
+	* Network ACL Inbound rules
+	* Security group Inbound rules
+		* Request reached the instance
+	* Outbound traffic allowed (__stateful__)
+		* Even if there is a Deny for that outbound rule, because it was allowed in, the outbound will always be allowed!
+	* Network ACL Outbound rules (__stateless__, aka always evaluated) 
 * Acts as a firewall on the subnet level
 * Default Network ACL: allows every inbound and outbound
 * Automatically applies to every instance
@@ -161,12 +161,12 @@
 * Scale horizontally and are redundant
 * Doesn't require NAT, IGW etc... in order to access AWS services (e.g: S3, CW, DDB, API GW...)
 * 2 types
-1) Interface
-  * Provisions an ENI (Private IP address) as an entry point
-  * __Must attach security group__
-2) Gateway
-  * Provisions a target and must be used in a route table
-  * S3, Dynamo DB
+	* Interface
+		* Provisions an ENI (Private IP address) as an entry point
+		* __Must attach security group__
+	* Gateway
+		* Provisions a target and must be used in a route table
+		* S3, Dynamo DB
 * In case of issues
 	* Check DNS Setting Resolution in the VPC
 	* Check route tables (for Gateway endpoints)

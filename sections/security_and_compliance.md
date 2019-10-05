@@ -136,9 +136,9 @@
 	* Enable
 * Able to audit key usage in CloudTrail
 * 3 types of Customer Master Keys (CMK)
-1) AWS Managed Service default: Free
-2) User keys: $1/month
-3) User keys imported (must be 256-bit symmetric key): $1/month
+	* AWS Managed Service default: Free
+	* User keys: $1/month
+	* User keys imported (must be 256-bit symmetric key): $1/month
 * Fee for API calls to KMS ($0.03/10000 calls)
 
 ### Encryption

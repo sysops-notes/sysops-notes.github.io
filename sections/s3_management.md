@@ -131,9 +131,9 @@
 	* `Delete` (Use SDK or Glacier REST API)
 * Restore links have an expiry date
 * 3 retrieval options:
-1) __Expedited__: 1 to 5 minutes retrieval, `$0.03/GB` + `$0.01/request`, Capacity units
-2) __Standard__: 3 to 5 hours retrieval, `$0.01/GB` + `$0.05/ 1000 request`
-3) __Bulk__: 5 to 12 hours retrieval, `$0.025/GB` + `$0.025/ 1000 request`
+	* __Expedited__: 1 to 5 minutes retrieval, `$0.03/GB` + `$0.01/request`, Capacity units
+	* __Standard__: 3 to 5 hours retrieval, `$0.01/GB` + `$0.05/ 1000 request`
+	* __Bulk__: 5 to 12 hours retrieval, `$0.025/GB` + `$0.025/ 1000 request`
 
 ### Vault lock & policies
 
@@ -184,26 +184,26 @@
 
 * Exposes S3 data to on-premise
 * AWS storage:
-1) Block (EBS, Instance store)
-2) File (EFS)
-3) Object (S3)
+	* Block (EBS, Instance store)
+	* File (EFS)
+	* Object (S3)
 * Types:
-1) __File gateway__: View files locally on-premise but they are backed in S3
-  * Configured S3 buckets are accessible using __NFS__ or __SMB__ protocols
-  * Support for all type of S3
-  * Bucket access using IAM roles for EACH File gateway
-  * Most recently used data is cached in gateway
-  * Can be mounter on many servers
-2) __Volume gateway__: View volumes locally on-premise but they are backed in EBS
-  * __iSCSI__ Protocol backed by S3
-  * Backed by EBS snapshots
-  * Cached volumes: Low latency access to most recent data
-  * Stored volumes: Entire dataset is on-premise, scheduled backups to S3
-3) __Tape gateway__: View archives locally on-premise but they are backed in Glacier
-  * Backups
-  * Virtual Tape Library (VTL)
-  * Backed by Glacier
-  * Summary
+	* __File gateway__: View files locally on-premise but they are backed in S3
+		* Configured S3 buckets are accessible using __NFS__ or __SMB__ protocols
+		* Support for all type of S3
+		* Bucket access using IAM roles for EACH File gateway
+		* Most recently used data is cached in gateway
+		* Can be mounter on many servers
+	* __Volume gateway__: View volumes locally on-premise but they are backed in EBS
+		* __iSCSI__ Protocol backed by S3
+		* Backed by EBS snapshots
+		* Cached volumes: Low latency access to most recent data
+		* Stored volumes: Entire dataset is on-premise, scheduled backups to S3
+	* __Tape gateway__: View archives locally on-premise but they are backed in Glacier
+		* Backups
+		* Virtual Tape Library (VTL)
+		* Backed by Glacier
+		* Summary
 * General question
 	* On premise data to Cloud => Storage gateway
 * Detailed question
