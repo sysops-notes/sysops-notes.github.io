@@ -68,9 +68,9 @@
 * Similar to cost explorer, but
 * Sends alarms when costs exceeding budget
 * Types of budgets
-	1) Usage
-	2) Cost
-	3) Reservation
+1) Usage
+2) Cost
+3) Reservation
 * For reserved instances (RI)
 	* Track utilization
 	* Supports EC2, Redshift, RDS, ElastiCache

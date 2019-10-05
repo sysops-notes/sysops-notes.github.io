@@ -101,9 +101,9 @@
 	* Route53 (AWS)
 * __Domain registrar != DNS__
 * How to:
-	1) Create your domain elsewhere
-	2) Create new hosted zone in R53
-	3) Copy the name servers from R53 hosted zone over where you registered your domain
-	4) Update the name servers there to use the one from 3)
+1) Create your domain elsewhere
+2) Create new hosted zone in R53
+3) Copy the name servers from R53 hosted zone over where you registered your domain
+4) Update the name servers there to use the one from 3)
 
 ## [Back](../README.md)
