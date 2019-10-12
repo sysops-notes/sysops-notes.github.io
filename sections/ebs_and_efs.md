@@ -54,18 +54,18 @@
 * Max 100000 backups per Account
 * Can copy snapshots between AZs / Regions
 * Can create AMI from snapshot
-* EBS volumes restored from snapshots need to be pre-warmed (fio pr dd)
+* EBS volumes restored from snapshots need to be pre-warmed (`fio` pr `dd`)
 * Snapshots can be automated via Amazon Data Lifecycle Manager
 
 ## EBS Migration
 
 * Snapshot volume
-* (Optional) Copy to another region
+* (_Optional_) Copy to another region
 * Create a volume from the snapshot in the AZ of your choice
 
 ## EBS Encryption
 
-* All encryption is handled by Amazon (_KMS: AES2-56_)
+* All encryption is handled by Amazon (_KMS: AES-256_)
 * Impact is minimal
 * Data at rest is encrypted
 * Data in flight is encrypted

@@ -19,20 +19,20 @@
 	* Different HW
 * Partition:
 	* 7 partitions per AZ
-	* up to 100 instances
+	* Up to 100 instances
 	* Big data distributed applications (HDFS, Kafka )
 
-## Shutdown behaviour (not same as instance protection)
+## Shutdown behavior (not same as instance protection)
 
 * Stop (default) or Terminate
-* Instance settings -> Change shutdown behaviour
+* Instance settings -> Change shutdown behavior
 * Through the OS (`sudo shutdown now`)
 * > Instance protection activated && shutdown is terminate: Shutdown from the OS will RESULT IN TERMINATION of the instance
 
 ## Launch troubleshooting
 
 * `#InstanceLimitExceeded`
-	* maximum number of instances in the region is reached (default: 20)
+	* Maximum number of instances in the region is reached (default: 20)
 	* Resolution:
 		* ticket to increase
 		* use another region
@@ -53,29 +53,29 @@
 
 ## SSH troubleshooting
 
-* `Unprotected key file`: pem has 400 permissions
+* `Unprotected key file`: pem doesn't have 400 permissions
 * `Host key not found`: wrong username
-* `Connection timeout`: SG or CPU 
+* `Connection timeout`: SG misconfiguration or CPU is busy
 
 ## Instance launch types
 
 * On-demand
-	* short workload, predictable pricing
+	* Short workload, predictable pricing
 * Reserved
-	* long workloads (1 or 3 years)
+	* Long workloads (1 or 3 years)
 * Convertible
 	* Reserved, but can change instance type
 * Scheduled
-	* short window reserved
+	* Short window reserved
 * Spot
 	* Bidding
-	* cheap, can loose instances
+	* Cheap, can loose instances
 * Dedicated instance
 	* Not sharing hardware
-	* can share from the same account
+	* Can share from the same account
 * Dedicated host
-	* entire server
-	* control placement
+	* Entire server
+	* Control placement
 	* 3 years
 
 ## Instance types [compare](ec2instances.info)
@@ -85,9 +85,9 @@
 * C
 	* Compute/Databases
 * M
-	* medium: between R and C (general, webapp)
+	* Medium: between R and C (general, webapp)
 * I
-	* good I/O, databases
+	* Good I/O, databases
 * G
 	* GPU: Video rendering, machine learning
 * T2/T3 Burstable
@@ -103,7 +103,7 @@
 	* Without "Create volume" permissions 
 		* Can't copy encrypted AMI
 		* Can't copy AMI with billingProduct
-		* Workarounds: Launch instance from AMI then create new from it
+		* Workaround: Launch instance from AMI then create new from it
 
 ## Elastic IP
 
@@ -124,8 +124,8 @@
 * CPU: Utilization + Credits if T? instance
 * Network: In and out traffic
 * Status:
-	* Instance: EC2 VM check
-	* System: Hardware check
+	* `Instance`: EC2 VM check
+	* `System`: Hardware check
 * Disk (only for instance store)
 * Custom:
 	* CloudWatch agent or scripts

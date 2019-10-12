@@ -1,6 +1,5 @@
 # [Autoscaling Groups & Load balancers](../README.md)
 
-
 ## High availability & Scalability
 
 ### Scalability

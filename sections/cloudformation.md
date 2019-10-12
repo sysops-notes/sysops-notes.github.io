@@ -142,12 +142,12 @@
 				Some: value
 	```
 
-## Intrisic functions
+## Intrinsic functions
 
 * `Fn::Ref`
 	* Short: `!Ref`
 	* Reference parameters: Return value
-	* Reference resources: Return physical id
+	* Reference resources: Return physical ID
 * `Fn::GetAtt`: 
 	* Short: `!GetAtt`
 	* Usage:
@@ -166,7 +166,7 @@
 	* Importing values that are exported from other templates
 * `Fn::Join`
 	* Short: `!Join [ delimiter, [<coma-delimited list of values>] ]`
-	* a:b:c <= `!Join [ ":", [ a, b, c ] ]`
+	* `a:b:c` <= `!Join [ ":", [ a, b, c ] ]`
 * `Fn::Sub`
 	* Short: `!Sub `
 	* String must contain `${VariableName}` and will substitute them

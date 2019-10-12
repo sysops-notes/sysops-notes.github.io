@@ -23,8 +23,8 @@ Managing EC2 at scale
 	* Inventory                          => List software on an instance
 	* Inventory + Run command            => Patch software
 	* Patch manager + maintenance window => Patch OS
-	* Patch manager + maintenance window => Compliance
-	* State manager                      => Compliance
+	* Patch manager                      => Gives compliance
+	* State manager                      => Ensures instances are in a compliant state
 * Session manager
 
 ## Lost SSH key to EC2

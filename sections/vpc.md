@@ -54,7 +54,7 @@
 		* `10.0.0.3`: Reserved for future use
 		* `10.0.0.255`: Broadcast address (But AWS doesn't support broadcast messages)
 * > Need 29 IPs, what should be the subnet size? –> /27 (32 IPs) is NOT GOOD!
-	* > Need at least /26. (/26 –> 64 - 5 = 59 IPs)
+Need at least /26. (/26 –> 64 - 5 = 59 IPs)
 
 ## Internet gateway
 
