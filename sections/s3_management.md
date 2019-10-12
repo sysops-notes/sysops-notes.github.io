@@ -48,7 +48,7 @@
 
 ## CloudFront overview
 
-* Content delivery network (CDN)
+* Content Delivery Network (CDN)
 * Improves performance by caching content at the edge (~136 edge points)
 * Popular with S3 but works well with EC2 & LB as well
 * Can help protect against network attacks
@@ -176,7 +176,7 @@
 ### Snowmobile
 
 * An actual truck
-* Exabytes of data (1 EV = 1 million TB)
+* Exabytes of data (1 EB = 1 million TB)
 * 1 truck = 100 PB -> Multiple trucks in parallel
 * Better than snowball if you want to transfer more than 10 PB
 
@@ -193,7 +193,7 @@
 		* Support for all type of S3
 		* Bucket access using IAM roles for EACH File gateway
 		* Most recently used data is cached in gateway
-		* Can be mounter on many servers
+		* Can be mounted on many servers
 	* __Volume gateway__: View volumes locally on-premise but they are backed in EBS
 		* __iSCSI__ Protocol backed by S3
 		* Backed by EBS snapshots

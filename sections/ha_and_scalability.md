@@ -183,7 +183,7 @@
 
 ### CW Metrics for ASG
 
-* Available ASG (__Opt-in__) metrics - Every _1 minute_
+* Available ASG _(Opt-in)_ metrics - Every _1 minute_
 	* `GroupMinSize`
 	* `GroupMaxSize`
 	* `GroupDesiredCapacity`

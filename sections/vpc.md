@@ -15,9 +15,9 @@
 
 * IANA (Internet Assigned Numbers Authority)
 * Private IP ranges
-	* `10.0.0.0` - `10.255.255.255` (__10.0.0.0/8__)
-	* `172.16.0.0` – `172.31.255.255` (__172.16.0.0/12__) _AWS Default_
-	* `192.168.0.0` – `192.168.255.255` (__192.168.0.0/16__)
+	* `10.0.0.0` - `10.255.255.255` _(10.0.0.0/8)_
+	* `172.16.0.0` – `172.31.255.255` _(172.16.0.0/12) AWS Default_
+	* `192.168.0.0` – `192.168.255.255` _(192.168.0.0/16)_
 
 ## Default VPC
 
@@ -53,7 +53,7 @@
 		* `10.0.0.2`: AWS DNS server
 		* `10.0.0.3`: Reserved for future use
 		* `10.0.0.255`: Broadcast address (But AWS doesn't support broadcast messages)
-* > Need 29 IPs, what should be the subnet size? –> /27 (32 IPs) is NOT GOOD!
+> Need 29 IPs, what should be the subnet size? –> /27 (32 IPs) is NOT GOOD!
 Need at least /26. (/26 –> 64 - 5 = 59 IPs)
 
 ## Internet gateway
@@ -102,7 +102,7 @@ Need at least /26. (/26 –> 64 - 5 = 59 IPs)
 * AWS managed, higher bandwidth, better availability, no admin
 * Pay by the hour + bandwidth
 * Created in a specific AZ, uses an EIP
-* Requires an IGW (_Private instance –> NGW –> IGW_)
+* Requires an IGW _(Private instance –> NGW –> IGW)_
 * Cannot be used by an instance in the same subnet that it is deployed
 * 5 GB/s bandwidth (default) that scales automatically to 45 GB/s
 * No need to manage SGs
@@ -127,9 +127,9 @@ Need at least /26. (/26 –> 64 - 5 = 59 IPs)
 	* Network ACL Inbound rules
 	* Security group Inbound rules
 		* Request reached the instance
-	* Outbound traffic allowed (__stateful__)
+	* Outbound traffic allowed _(stateful)_
 		* Even if there is a Deny for that outbound rule, because it was allowed in, the outbound will always be allowed!
-	* Network ACL Outbound rules (__stateless__, aka always evaluated) 
+	* Network ACL Outbound rules _(stateless, aka always evaluated)_
 * Acts as a firewall on the subnet level
 * Default Network ACL: allows every inbound and outbound
 * Automatically applies to every instance

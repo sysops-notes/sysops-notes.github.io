@@ -58,6 +58,7 @@
 * For a 3rd part, need to fill a form
 * Can only test against:
 	* EC2, ELB, RDS, Aurora, CloudFront, API Gateway, Lambda and Lightsail
+* __Cannot__ test against:
 	* nano / micro / small kind of EC2 instances
 * 2 business days to approve the form
 
@@ -100,11 +101,11 @@
 * No need to install anything
 * High level AWS account assessment
 * Provides recommendations
-	* Cost optimization (_need to upgrade support plan to access_)
-	* Performance (_need to upgrade support plan to access_)
-	* Security (_some parts are included, for the rest need to upgrade support plan_)
-	* Fault tolerance (_need to upgrade support plan to access_)
-	* __Service limits__ (_included_)
+	* Cost optimization _(need to upgrade support plan to access)_
+	* Performance _(need to upgrade support plan to access)_
+	* Security _(some parts are included, for the rest need to upgrade support plan)_
+	* Fault tolerance _(need to upgrade support plan to access)_
+	* __Service limits__ _(included)_
 * __Core Checks__ and recommendations - all customers (included)
 * __Full Trusted Advisor__ Only for Business & Enterprise support plans
 	* Ability to set CloudWatch alarms when reaching limits
@@ -159,7 +160,7 @@
 	* tamper resistant
 	* Can chose HW compliance
 		* eg: `FIPS 140-2 Level 3 compliance`
-* You manage your own encryption keys entirely (__single tenant key storage__ unlike KMS which is multi tenant)
+* You manage your own encryption keys entirely _(single tenant key storage unlike KMS which is multi tenant)_
 * CloudHSM clusters are spread across multi AZ (HA)
 * Supports symmetric and asymmetric keys!
 * No free tier
@@ -198,7 +199,7 @@
 
 * Define IAM role for another account
 * Define which accounts can assume this role
-* Use STS to retrieve credentials and impersonate this IAM role you have access to (__Assume role API__)
+* Use STS to retrieve credentials and impersonate this IAM role you have access to _(Assume role API)_
 * Temporary credentials can be valid from 15 min to 12 hours (cannot be longer than the role allows)
 
 ## Federation
@@ -245,6 +246,6 @@
 * Portal that provides customers with on-demand access to AWS compliance documentation and AWS agreements
 * Artifact reports
 * Artifact agreements
-* > How can I find compliance documentation on AWS? –> AWS Artifact 
+> How can I find compliance documentation on AWS? –> AWS Artifact 
 
 ## [Back](../README.md)

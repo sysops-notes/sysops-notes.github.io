@@ -27,7 +27,7 @@
 * Stop (default) or Terminate
 * Instance settings -> Change shutdown behavior
 * Through the OS (`sudo shutdown now`)
-* > Instance protection activated && shutdown is terminate: Shutdown from the OS will RESULT IN TERMINATION of the instance
+> Instance protection activated && shutdown is terminate: Shutdown from the OS will RESULT IN TERMINATION of the instance
 
 ## Launch troubleshooting
 
@@ -95,7 +95,7 @@
 
 ## AMI
 
-* Region specific! (__AMI ID will be different in each region__)
+* Region specific! _(AMI ID will be different in each region)_
 * Stored in S3
 * Use public AMIs / Rent from third parties
 * Private and region locked by default
@@ -107,7 +107,7 @@
 
 ## Elastic IP
 
-* Mask failure of an instance or se by quickly remapping the address
+* Mask failure of an instance or service by quickly remapping the address
 * 5 IP by default
 * Associate -> Disassociate -> Associate
 

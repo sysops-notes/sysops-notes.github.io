@@ -42,7 +42,7 @@
 
 * Can only increase
 	* Volume size
-	* IOPS (only in _IO1_)
+	* IOPS _(only in IO1)_
 * After resize, need to repartition the drive
 * Can do it while its being used
 
@@ -60,12 +60,12 @@
 ## EBS Migration
 
 * Snapshot volume
-* (_Optional_) Copy to another region
+* _(Optional) Copy to another region_
 * Create a volume from the snapshot in the AZ of your choice
 
 ## EBS Encryption
 
-* All encryption is handled by Amazon (_KMS: AES-256_)
+* All encryption is handled by Amazon _(KMS: AES-256)_
 * Impact is minimal
 * Data at rest is encrypted
 * Data in flight is encrypted

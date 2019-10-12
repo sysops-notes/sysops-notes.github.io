@@ -49,7 +49,7 @@
 
 ### Encryption
 
-* Encryption at rest: AWS KMS, AES 256
+* Encryption at rest: AWS KMS, AES-256
 * SSL certificate to encrypt data in flight
 * Enforce SSL:
 	* PostgreSQL: `rds.force_ssl=1` in the parameter group
@@ -73,10 +73,10 @@
 	* AZ outage
 	* DB instance type is changed
 	* OS of the DB instance is undergoing software patching
-	* A manual failover of the DB instance (_Reboot with failover_)
+	* A manual failover of the DB instance _(Reboot with failover)_
 * No failover for
-	* long running queries
-	* deadlocks
+	* Long running queries
+	* Deadlocks
 	* DB corruption errors
 * Endpoint is the same after the failover
 * Lower maintenance impact! Update happens on standby, if it was OK, it is promoted to master

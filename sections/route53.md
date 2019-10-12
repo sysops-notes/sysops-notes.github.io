@@ -56,15 +56,15 @@
 ## Health checks
 
 * Similar to ELB health checks
-* After X health checks failed => `Unhealthy` (_Default 3_)
-* After X health checks passed => `Healthy` (_Default 3_)
+* After X health checks failed => `Unhealthy` _(Default 3)_
+* After X health checks passed => `Healthy` _(Default 3)_
 * Default health check interval: 30 seconds
 * Fast health check interval: 10 seconds –> Higher costs
-* About 15 health checkers will check the endpoint (_1 request every 2 seconds on average_)
+* About 15 health checkers will check the endpoint _(1 request every 2 seconds on average)_
 * Can have
 	* TCP health checks
 	* HTTP health checks
-	* HTTPS health checks (__No SSL validation__)
+	* HTTPS health checks _(No SSL validation)_
 * Can integrate with CloudWatch
 * __Can be linked to Route53 DNS queries!__
 

@@ -41,7 +41,7 @@
 ### Logs
 
 * Application can send logs using CLI
-* AWS Services the log directly:
+* AWS Services that are logging directly:
 	* ElasticBeanstalk
 	* ECS
 	* Lambda
