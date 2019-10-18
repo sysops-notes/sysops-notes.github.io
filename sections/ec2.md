@@ -8,23 +8,23 @@
 
 ## Placement groups:
 
-* Cluster: 
+* __Cluster:__ 
 	* Single AZ low latency
 	* Same hardware/rack
 	* 10 GBps
 	* No T2 types
-* Spread:
+* __Spread:__
 	* Multi AZ
 	* Maximum 7 instances in any AZ
 	* Different HW
-* Partition:
+* __Partition:__
 	* 7 partitions per AZ
 	* Up to 100 instances
 	* Big data distributed applications (HDFS, Kafka )
 
 ## Shutdown behavior (not same as instance protection)
 
-* Stop (default) or Terminate
+* Stop _(default)_ or Terminate
 * Instance settings -> Change shutdown behavior
 * Through the OS (`sudo shutdown now`)
 > Instance protection activated && shutdown is terminate: Shutdown from the OS will RESULT IN TERMINATION of the instance
@@ -32,7 +32,7 @@
 ## Launch troubleshooting
 
 * `#InstanceLimitExceeded`
-	* Maximum number of instances in the region is reached (default: 20)
+	* Maximum number of instances in the region is reached _(default: 20)_
 	* Resolution:
 		* ticket to increase
 		* use another region
@@ -70,6 +70,7 @@
 * Spot
 	* Bidding
 	* Cheap, can loose instances
+	* If instance is terminated before the first hour __BY AWS__ you don't pay anything
 * Dedicated instance
 	* Not sharing hardware
 	* Can share from the same account
@@ -80,22 +81,22 @@
 
 ## Instance types [compare](ec2instances.info)
 
-* R
+* `R`
 	* RAM - memory heavy
-* C
+* `C`
 	* Compute/Databases
-* M
+* `M`
 	* Medium: between R and C (general, webapp)
-* I
+* `I`
 	* Good I/O, databases
-* G
+* `G`
 	* GPU: Video rendering, machine learning
-* T2/T3 Burstable
-* T2/T3 Unlimited
+* `T2/T3 Burstable`
+* `T2/T3 Unlimited`
 
 ## AMI
 
-* Region specific! _(AMI ID will be different in each region)_
+* Region specific! ___(AMI ID will be different in each region)___
 * Stored in S3
 * Use public AMIs / Rent from third parties
 * Private and region locked by default
@@ -121,7 +122,7 @@
 	* 1 minute, can be more frequent up to 1 sec
 	* RAM, application level metrics
 	* Needs IAM role to push to CW
-* CPU: Utilization + Credits if T? instance
+* CPU: Utilization + Credits if instance type is `T`
 * Network: In and out traffic
 * Status:
 	* `Instance`: EC2 VM check

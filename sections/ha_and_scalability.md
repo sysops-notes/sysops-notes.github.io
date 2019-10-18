@@ -4,11 +4,11 @@
 
 ### Scalability
 
-* Vertical
-	* Increase the size of the instance (t2.micro -> t2.large)
+* __Vertical__
+	* Increase the size of the instance _(t2.micro -> t2.large)_
 	* Common in non-distributed systems, such as databases
-* Horizontal
-	* Increase the number of instances/services (from 1 to 6)
+* __Horizontal__
+	* Increase the number of instances/services _(from 1 to 6)_
 	* Common in distributed systems
 
 ### High availability
@@ -35,8 +35,8 @@
 		* Application (v2) 2016
 		* Network (v2) 2017
 	* Can be Private and Public
-* 4xx client induced errors
-* 5xx application induced errors
+* `4xx` client induced errors
+* `5xx` application induced errors
 
 ### Application Load Balancer
 
@@ -123,9 +123,9 @@
 
 ### LB Access Logs
 
-* Stored in S3 (need to enable in the LB `Attributes` - Both in same region!)
+* Stored in S3 _(need to enable in the LB `Attributes` - __Both in same region!__)_
 * Encrypted by default
-* No extra charge (just S3 storage)
+* No extra charge _(just S3 storage)_
 * Lot of information (Time, Client IP, Latencies, Request paths, Server response, Trace id)
 
 ## AutoScaling Group
@@ -178,6 +178,10 @@
 * `<number of instances> instance(s) are already running`: Increase __desired capacity__ of ASG
 * Launching EC2 is failed:
 	* SG is deleted
+* `Instance is in VPC. Failed to configure LB`
+	* LB is in a Classic VPC whereas the instance is launched in a VPC
+* `Instance is not in VPC. Failed to configure LB`
+	* ??
 * ASG fails to launch for 24 hours -> `Administration suspension` All processes are suspended
 	* Key pair is deleted
 

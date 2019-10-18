@@ -51,6 +51,9 @@
 	* Review environment events
 	* Pull logs
 	* Rollback previous version
+* Environment couldn't launch. EC2 instance profile doesn't exists.
+	* IAM role doesn't exists
+	* IAM role doesn't have enough permissions
 * Make sure SG are correctly configured if accessing external resources
 * Increase deployment timeout
 

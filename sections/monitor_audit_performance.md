@@ -69,9 +69,9 @@
 * Alarms can go to Auto Scaling, EC2 Actions, SNS notifications
 * Various options (sampling, %, min, max, etc...)
 * Alarm states
-	* OK
-	* INSUFFICIENT_DATA
-	* ALARM
+	* `OK`
+	* `INSUFFICIENT_DATA`
+	* `ALARM`
 * Period
 	* Length of time to evaluate metric
 	* High resolution custom metrics: only 10 or 30 seconds

@@ -74,13 +74,13 @@
 ## Logging for security and compliance
 
 * Service logs
-	* CloudTrails: Trace API calls
-	* Config Rules: Compliance over time
-	* CloudWatch Logs: data retention
-	* VPC Flow Logs: IP Traffic withing your VPC
-	* ELB Access Logs: Metadata of request to the LBs
-	* CloudFront Logs: Web distribution logs
-	* WAF Logs: Full logging of all requests analyzed by the service
+	* `CloudTrail`: Trace API calls
+	* `Config Rules`: Compliance over time
+	* `CloudWatch Logs`: data retention
+	* `VPC Flow Logs`: IP Traffic within your VPC
+	* `ELB Access Logs`: Metadata of request to the LBs
+	* `CloudFront Logs`: Web distribution logs
+	* `WAF Logs`: Full logging of all requests analyzed by the service
 * All these can be put into s3 –> Analyze with `AWS Athena`
 * Encrypt bucket + use IAM & bucket policies to secure, MFA delete
 * Transition to glacier with lock policy
@@ -114,22 +114,22 @@
 ## KMS
 
 * Key management service
-* Supports only symmetric keys
+* Only supports symmetric keys
 * Fully integrated with IAM for authorization
 * Seamlessly integrated with many services (EBS, S3, Redshift, RDS, SSM...)
 * Can also use the cli to encrypt ourselves
 * 101
 	* Need to share sensitive information –> KMS
-* CMK (Customer Master Key)
+* CMK _(Customer Master Key)_
 	* used to encrypt data
 	* can never be retrieved by the user
 	* can be rotated for extra security
 * __Can only encrypt up to 4 KB data per call__
 * If data > 4 KB
 	* __Have to use envelope encryption__
-* Give access to KMS to someone
-	* Key policy allows user
-	* IAM policy allows API calls
+* How to give access to KMS to someone
+	* Key policy allows the user
+	* IAM policy for the user allows KMS API calls
 * Ability to fully manage keys & policies
 	* Create
 	* Rotate policies
@@ -155,9 +155,9 @@
 ## Cloud HSM
 
 * Hardware Security Model
-* AWS provisions the encryption hardware only (KMS manages to software for encryption)
+* AWS provisions the encryption hardware only _(KMS manages the software for encryption)_
 * Dedicated hardware
-	* tamper resistant
+	* Tamper resistant
 	* Can chose HW compliance
 		* eg: `FIPS 140-2 Level 3 compliance`
 * You manage your own encryption keys entirely _(single tenant key storage unlike KMS which is multi tenant)_
@@ -191,9 +191,9 @@
 	* Provides non AWS user temporary access by linking Active Directory credentials
 	* Uses SAML (Security Assertion Markup Language)
 	* Allows SSO (Single Sign On) which enables users to log in to AWS console without assigning IAM credentials
-* Federation with 3rd part providers (Cognito)
-	* mainly in web and mobile applications
-	* makes use of Facebook/Google/Amazon  etc to federate them
+* Federation with 3rd party providers (Cognito)
+	* Mainly in web and mobile applications
+	* Makes use of Facebook/Google/Amazon etc to federate them
 
 ### Cross account access
 
@@ -205,13 +205,13 @@
 ## Federation
 
 * Lets users outside of AWS to assume temporary role to access AWS resources
-* Federation assumes a form of a 4rd party authentication
+* Federation assumes a form of a 3rd party authentication
 	* LDAP
 	* MS Active directory (~SAML)
 	* Singe Sign On
 	* Open ID
 	* Cognito
-* User management is done outside of AWS (–> don't need to create users in AWS)
+* User management is done outside of AWS __(–> don't need to create users in AWS)__
 
 ### SAML Federations for Enterprises
 
@@ -222,7 +222,7 @@
 	* Use the CLI (STS)
 	* Access console (SSO, in the background uses STS)
 
-### Custom Identity Broken
+### Custom Identity Broker
 
 * If you don't have an identity provider compatible with SAML 2.0
 * You have to implement the identity provider

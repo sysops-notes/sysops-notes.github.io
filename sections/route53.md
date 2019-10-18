@@ -32,6 +32,8 @@
 	* Points URL to AWS Resource only
 	* __Works for BOTH root AND non-root Domain!__
 	* `myapp.domain.com` to `s0m3Rand0mID.elb.amazonaws.com`
+		* or
+	* `domain.com` to `s0m3Rand0mID.elb.amazonaws.com`
 	* Free of charge
 	* Support for native health checks
 
@@ -80,9 +82,9 @@
 * Based on user's geological location
 * Should create a default policy (in case the geo is not defined)
 * E.g.: 
-	* Traffic from UK goes to: X.X.X.X
-	* Traffic from US goes to: Y.Y.Y.Y
-	* Default goes to:         X.X.Y.Y 
+	* Traffic from UK goes to: `X.X.X.X`
+	* Traffic from US goes to: `Y.Y.Y.Y`
+	* Default goes to:         `X.X.Y.Y`
 
 ## Multi value routing policy
 

@@ -11,10 +11,10 @@
 	* Billed on this
 * Can increase capacity over time
 * Types
-	* __GP2__: Balanced, general purpose SSD
-	* __IO1__: Highest performance SSD, low latency, high throughput workloads, Critical Database
-	* __SP1__: Low cost HDD, frequently accessed throughput intensive workloads, Streaming
-	* __SC1__: Lowest cost HDD, less frequently accessed workloads
+	* __GP2: General Purpose SSD__: Balanced
+	* __IO1: Provisioned IOPS SSD__: Highest performance SSD, low latency, high throughput workloads, Critical Database
+	* __SP1: Throughput Optimized HDD__: Low cost HDD, frequently accessed throughput intensive workloads, Streaming
+	* __SC1: Cold HDD__: Lowest cost HDD, less frequently accessed workloads
 * Boot volume can only by _GP2_ or _IO1_
 * Some commands:
 	* `lsblk`: List volumes
@@ -103,20 +103,19 @@
 ## EBS RAID
 
 * EBS is already redundant (Replicated withing AZ)
-* RAID is possible as long as the OS supports it (have to do it through OS, no an Amazon "feature")
-	* RAID 0
-		* Increase performance
+* RAID is possible as long as the OS supports it (have to do it through OS, not an Amazon "feature")
+	* `RAID 0`
+		* __Increase performance__
 		* If 1 disk fails, you lose data
 		* Could go to 10K IOPS -> 10 disk each having 1k IOPS
 		* Use cases
 			* App need a lot of IOPS and doesn't need fault tolerance
 			* DB that has replication built-in
-	* RAID 1
-		* Increase fault tolerance by Mirroring
+	* `RAID 1`
+		* __Increase fault tolerance by Mirroring__
 		* Have to send data to 2 EBS -> 2x Network
 		* Use cases
-			* App that needs to increase volume fault tolerance
-			* 
+			* App that needs to increase volume fault tolerance 
 	* RAID 5 - Not recommended for EBS 
 	* RAID 6 - Not recommended for EBS 
 

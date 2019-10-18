@@ -34,13 +34,13 @@ Managing EC2 at scale
 		* Stop instance
 		* Detach root volume
 		* Attach it to a new instance as a data volume
-		* Change ~/.ssh/authorized_keys
+		* Change `~/.ssh/authorized_keys`
 		* Detach / Move back to original instance
 	* Method 2: SSM
 		* `AWSSupport-ResetAccess`
 * Instance store backed
 	* Nothing to do, terminate instance
-	* (Could use SSM)
+	* _(Could use SSM)_
 
 ## Parameter Store
 

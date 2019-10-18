@@ -137,7 +137,7 @@ Need at least /26. (/26 –> 64 - 5 = 59 IPs)
 * New subnets are associated with the default Network ACL
 * Network ACL rules
 	* Have a number (`1-32766`), with lower number having higher priorities
-	* Lat rule is an asterisk (*) which is a DENY –> Denies all that didn't match any rule
+	* Last rule is an asterisk (*) which is a DENY –> Denies all that didn't match any rule
 	* AWS Recommends to add rules with 100 increments
 * The rule with the lowest number that matched will be used (aka Not all rules will be evaluated)
 * Newly created Network ACLs will deny everything

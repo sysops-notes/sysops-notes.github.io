@@ -49,7 +49,7 @@
 
 ## Billing alarms
 
-* Stored in CloudWatch us-east-1
+* Stored in CloudWatch `us-east-1`
 * For overall worldwide costs
 * Overall (not by project) alarms
 

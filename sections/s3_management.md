@@ -66,12 +66,12 @@
 	* top referrers
 	* usage reports
 	* viewers report
-*  CF caches `HTTP 4xx` (user doesn't have access) and `5xx` (gateway issues) status codes returned by S3
+* CF caches `HTTP 4xx` (user doesn't have access) and `5xx` (gateway issues) status codes returned by S3
 
 ## S3 Inventory
 
 * Helps to manage storage
-* Audit and report on replication and encryption status of your objects
+* __Audit and report on replication and encryption status of your objects__
 * Data for the Source bucket has to go to a Target bucket (need to set up IAM permissions)
 
 ## S3 Storage tiers
@@ -101,7 +101,7 @@
 
 ## S3 Lifecycle rules
 
-* Set of rules to move data between different tiers to save costs
+* Set of rules to __move data between different tiers__ to save costs
 	* Transition actions
 		* Move objects into another tier
 	* Expiration actions
@@ -110,7 +110,7 @@
 
 ## S3 Storage class Analytics
 
-* Setup analytics to help determine when to transition objects to different tiers
+* Setup analytics to __help determine when to transition objects to different tiers__
 * Does NOT work for OneZone IA or Glacier
 * Daily report
 * First report takes 1-2 days
@@ -139,8 +139,8 @@
 
 * Vault Collection of archives
 * Each Vault has:
-	* 1 Vault access policy (JSON), similar to bucket policies
-	* 1 Vault lock policy
+	* 1 Vault __access policy__ (JSON), similar to bucket policies
+	* 1 Vault __lock policy__
 		* Immutable
 		* A policy that has been locked. E.g.: Can never be changed, removed
 			* Example 1: `WORM policy`: Write Once, Read Many: 
@@ -149,7 +149,7 @@
 
 ## Snowball
 
-* Physical data transport that helps move data in or out AWS (TBs or PBs)
+* Physical data transport that helps move data in or out AWS __(TBs or PBs)__
 * Alternative to moving data over network (save network fee)
 * Secure, temper resistant, KMS 256 bit encryption
 * Tracking using SNS and text messages
@@ -167,7 +167,7 @@
 ### Snowball Edge
 
 * Adds computational capability to the device
-* 100 TB with either
+* __100 TB with either__
 	* Storage optimized (24 vCPU)
 	* Compute optimized (52 vCPU & optional GPU)
 * Supports custom AMI, so you can perform operations on the go

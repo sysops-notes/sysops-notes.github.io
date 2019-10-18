@@ -6,7 +6,7 @@
 * Declarative language
 * How it works
 	* Templates uploaded to S3
-	* To edit an existing one: can't. Need to re-upload with the changes
+	* Can't edit an existing one. -> Need to re-upload with the changes!
 	* Stacks are identified by a name
 	* Deleting a stack deletes all resources created by it
 * Deploying templates
@@ -191,7 +191,7 @@
 
 * Must be in the metadata of the resource
 * Helps make complex ec2 configurations readable
-* EC2 instance will query the CloudFormation service tp get the init data
+* EC2 instance will query the CloudFormation service to get the init data
 * Logs to: `/var/log/cfn-init.log`
 	``` yaml
 	MyInstance:
@@ -258,9 +258,9 @@
 * Verify instance is connected to the Internet 
 * Stack creation fails
 	* OnFailure options:
-		* Rollback (Default)
-		* DoNothing
-		* Delete
+		* `Rollback` _(Default)_
+		* `DoNothing`
+		* `Delete`
 * Stack update fails:
 	* Auto rollback to previous state
 
