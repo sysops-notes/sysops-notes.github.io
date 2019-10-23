@@ -56,10 +56,10 @@
 ### Network Load Balancer
 
 * Later 4 (TCP)
-* Millions of requests per seconds (High performance)
+* __Millions of requests per seconds__ (High performance)
 * Supports static & elastic IPs
 	* 1 static IP per subnet
-* No SSL termination
+* __Doesn't support__ SSL termination
 * Low latency: ~100ms
 * Directly see clients' IP
 
@@ -126,7 +126,7 @@
 * Stored in S3 _(need to enable in the LB `Attributes` - __Both in same region!__)_
 * Encrypted by default
 * No extra charge _(just S3 storage)_
-* Lot of information (Time, Client IP, Latencies, Request paths, Server response, Trace id)
+* Lot of information __(Time, Client IP, Latencies, Request paths, Server response, Trace id)__
 
 ## AutoScaling Group
 

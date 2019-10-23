@@ -22,7 +22,7 @@
 
 * Possible to define your own metrics
 * Able to use dimensions
-* Metric resolution is 1 minute (default), can go up tp every second (extra fee)
+* Metric resolution is 1 minute (default), can go up tp every second _(extra fee)_
 * API: `PutMetricData`
 * Throttle errors -> Exponential back off
 
@@ -37,6 +37,7 @@
 	* 3 dashboards (up to 50 metrics): Free
 	* $3/month/dashboard 
 * How to create global dashboard -> Add metrics from different region
+* Cannot aggregate metrics from regional metrics!
 
 ### Logs
 
@@ -96,7 +97,7 @@
 * Provides governance, compliance and audit for your AWS account
 * (Track every API call made to the account)
 * Can put to CW Logs
-* If a resource is deleted, look in CloudTrails (to see who did that)
+* If a resource is deleted, look in CloudTrail _(to see who did that)_
 * Stores for 90 days (then you need to store them somewhere else if you want to keep them)
 * Default UI only shows `Create` `Modify` and `Delete` events
 * Can create Trails
@@ -117,14 +118,14 @@
 	* Is there any S3 buckets with public access
 	* How my ALB configuration changed
 	* etc...
-* Can receive alerts (SNS notification) on changes
+* Can receive alerts _(SNS notification)_ on changes
 * Regional service
 * Can be aggregated across multiple accounts/regions
 
 ### Config rules
 
 * 80+ AWS managed config rules
-* Can create custom rules (must be defined in AWS Lambda)
+* Can create custom rules _(must be defined in AWS Lambda)_
 	* Eg.: Evaluate if all EBS disk is gp2 type
 * Rules can be evaluated
 	* For each config change

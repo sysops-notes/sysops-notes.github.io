@@ -9,15 +9,15 @@
 	* MySQL
 	* MariaDB
 	* Microsoft SQL Server
-	* Aurora (AWS Proprietary db)
+	* Aurora _(AWS Proprietary db)_
 * Benefits
 	* OS patching
-	* Point in time restore (PITR) backups
+	* Point in time restore _(PITR)_ backups
 	* Monitoring dashboards
-	* Read replicas (for better read performance, up to 5)
-	* Multi AZ (disaster recovery)
+	* Read replicas _(for better read performance, __up to 5__)_
+	* Multi AZ _(for disaster recovery)_
 	* Maintenance windows
-	* Scaling capability (horizontal and vertical)
+	* Scaling capability _(horizontal and vertical)_
 * Drawback
 	* Can't SSH into the instances
 
@@ -29,7 +29,7 @@
 * Write to master, read from any
 * __Application must update connection string to leverage read replicas__
 
-### Multi AZ (Disaster recovery)
+### Multi AZ (aka Disaster recovery)
 
 * `SYNC`
 * Only writes/reads from master
@@ -63,7 +63,7 @@
 * Deployed in private subnets
 * Leverages security groups who can __communicate__
 * IAM policies determines who can __manage__
-* Traditional username /w password to __connect/login__
+* Traditional username with password to __connect/login__
 	* IAM user can now be used too for MySQL/Aurora
 
 ## RDS Multi AZ
@@ -79,9 +79,9 @@
 	* Deadlocks
 	* DB corruption errors
 * Endpoint is the same after the failover
-* Lower maintenance impact! Update happens on standby, if it was OK, it is promoted to master
+* __Lowers maintenance impact!__ Update happens on standby, if it was OK, it is promoted to master
 * Backups are created on the standby -> No impact on master performance
-* Multi AZ is only in the same region!
+* __Multi AZ is only in the same region!__
 
 ## RDS Read replica
 
@@ -91,7 +91,7 @@
 * Each read replica has it's own DNS
 * Can help with disaster recovery IF using cross region read replicas
 * Read replicas are not supported for Oracle
-* Read replicas can be used to run BI/Analytics without affecting master performance
+* __Read replicas can be used to run BI/Analytics__ without affecting master performance
 
 ## Parameter groups
 

@@ -139,8 +139,8 @@
 * 3 types of Customer Master Keys (CMK)
 	* AWS Managed Service default: Free
 	* User keys: $1/month
-	* User keys imported (must be 256-bit symmetric key): $1/month
-* Fee for API calls to KMS ($0.03/10000 calls)
+	* User keys imported __(must be 256-bit symmetric key)__: $1/month
+* Fee for API calls to KMS _($0.03/10000 calls)_
 
 ### Encryption
 
@@ -159,7 +159,7 @@
 * Dedicated hardware
 	* Tamper resistant
 	* Can chose HW compliance
-		* eg: `FIPS 140-2 Level 3 compliance`
+		* Eg: `FIPS 140-2 Level 3 compliance`
 * You manage your own encryption keys entirely _(single tenant key storage unlike KMS which is multi tenant)_
 * CloudHSM clusters are spread across multi AZ (HA)
 * Supports symmetric and asymmetric keys!
@@ -234,11 +234,11 @@
 
 * For public applications
 * Goal
-	* Provide direct access o AWS resources from the Client side
+	* Provide direct access to AWS resources from the Client side
 * How
 	* Log into federated identity provider - or remain anonymous
-	* get temporary credentials back from the federated identity pool (from Cognito)
-	* these come with pre-defined IAM policies
+	* Get temporary credentials back from the federated identity pool (from Cognito)
+	* These come with pre-defined IAM policies
 
 ## AWS Artifact
 

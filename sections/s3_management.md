@@ -4,6 +4,7 @@
 
 * Can protect against hackers, cause each version is a separate file
 * Cannot delete bucket unless all objects AND all versions are deleted first
+* __If on object has millions of versions, it can affect performance!__
 
 ## MFA Delete
 
@@ -11,11 +12,11 @@
 * Only the bucket owner (root account) can enable/disable MFA-Delete
 * Can only enable is via the CLI (as of now)
 * Need to MFA before
-	* permanently deleting an object version
-	* suspend versioning
+	* Permanently deleting an object version
+	* Suspend versioning
 * DON'T need MFA for
-	* enabling versioning
-	* listing deleted versions
+	* Enabling versioning
+	* Listing deleted versions
 * If enabled, you can't do any permanent delete as the UI doesn't use MFA -> must do all permanent delete in the CLI
 
 ## Default encryption Vs Bucket policies
@@ -49,7 +50,7 @@
 ## CloudFront overview
 
 * Content Delivery Network (CDN)
-* Improves performance by caching content at the edge (~136 edge points)
+* Improves performance by caching content at the edge _(~136 edge points)_
 * Popular with S3 but works well with EC2 & LB as well
 * Can help protect against network attacks
 * Can provide SSL encryption using ACM at edge
@@ -61,11 +62,11 @@
 
 * Can log every request made to CloudFront into an S3 bucket
 * Can get reports based on access logs, but don't have to enable access logs to get these reports
-	* cache statistics
-	* popular objects report
-	* top referrers
-	* usage reports
-	* viewers report
+	* Cache statistics
+	* Popular objects report
+	* Top referrers
+	* Usage reports
+	* Viewers report
 * CF caches `HTTP 4xx` (user doesn't have access) and `5xx` (gateway issues) status codes returned by S3
 
 ## S3 Inventory

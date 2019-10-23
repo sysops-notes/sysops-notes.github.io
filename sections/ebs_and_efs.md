@@ -25,8 +25,8 @@
 
 * Volume is less than 1000GB (means IOPS is less than 3000) then it can burst to 3000 IOPS
 * If balance is 0 all the time
-	* increase volume size
-	* switch to IO1
+	* Increase volume size
+	* Switch to IO1
 * Monitor via CloudWatch the I/O credit
 
 ## Computing MB/s based on IOPS
