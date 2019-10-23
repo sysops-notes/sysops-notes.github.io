@@ -82,6 +82,11 @@
 * Instance Store
 	* Physically attached to the instance
 	* Ephemeral storage
+	* Additional metrics that is only available for instance stores:
+		* `DiskReadOps`
+		* `DiskWriteOps`
+		* `DiskReadBytes`
+		* `DiskWriteBytes`
 	* Pros
 		* Better I/O
 		* Goof for buffer, cache, scratch data, temporary content

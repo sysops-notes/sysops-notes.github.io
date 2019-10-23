@@ -40,6 +40,11 @@
 	* Min size: `/28` –> 16 Addresses
 	* Max size: `/16` –> 65536 Addresses
 * Each VPC can have a maximum of 5 CIDRs (1 primary, 4 secondary)
+* Before being able to delete a VPC need to:
+	* Terminate all instances
+	* Delete all subnets
+	* Delete custom security groups and custom route tables
+	* Detach any internet gateways or virtual private gateways
 
 ## Subnet Overview
 

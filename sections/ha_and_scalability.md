@@ -80,14 +80,14 @@
 
 * `200`: Successful
 * `4xx`: Unsuccessful at client side
-	* `400`: bad request
-	* `401`: not authorized
-	* `403`: forbidden
+	* `400`: Bad request
+	* `401`: Not authorized
+	* `403`: Forbidden
 * `5xx`: Unsuccessful at server side
-	* `500`: internal server error -> Error with LB
-	* `502`: bad gateway
+	* `500`: Internal server error -> Error with LB
+	* `502`: Bad gateway
 	* `503`: __Service unavailable__
-	* `504`: gateway timeout
+	* `504`: Gateway timeout
 
 ### SSL for old browsers
 
@@ -112,10 +112,12 @@
 * All metrics are directly pushed to CW
 	* `BackendConnectionErrors`
 	* `HealthyHostCount`/`UnHealthyHostCount`
-	* `HTTPCode_Backend_2xx`= Successful
-	* `HTTPCode_Backend_3xx`= Redirected
-	* __`HTTPCode_ELB_4xx`= Client error__
-	* __`HTTPCode_ELB_5xx`= Server error__
+	* `HTTPCode_ELB_4XX` => Malformed/cancelled __client__ request
+	* `HTTPCode_ELB_5XX` => __LB/Instance__ errors OR LB cannot parse response
+	* `HTTPCode_Backend_2XX` => OK
+	* `HTTPCode_Backend_3XX` => Redirected
+	* __`HTTPCode_Backend_4XX`__ => A __client error__ response sent from the registered instances.
+	* __`HTTPCode_Backend_5XX`__ => A __server error__ response sent from the registered instances.
 	* `Latency`
 	* `RequestCount`
 	* __`SurgeQueueLength`: Max is 1024, at max length connections dropped!__

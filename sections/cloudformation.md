@@ -7,6 +7,7 @@
 * How it works
 	* Templates uploaded to S3
 	* Can't edit an existing one. -> Need to re-upload with the changes!
+		* Doesn't mean you can't change the options of a deployed stack
 	* Stacks are identified by a name
 	* Deleting a stack deletes all resources created by it
 * Deploying templates
@@ -17,12 +18,13 @@
 		* Editing yaml file
 		* AWS CLI to deploy templates
 * Config blocks:
-	* `Resources`: AWS resource, mandatory
-	* `Parameters`: Dynamic inputs
-	* `Mappings`: static variables
-	* `Outputs`: References to what had been created
-	* `Conditionals`: List of conditions to perform resource actions
-	* `Metadata`:
+	* __`Resources`: AWS resource, mandatory__
+	* `Parameters`: Dynamic inputs _(Optional)_
+	* `Mappings`: static variables _(Optional)_
+	* `Outputs`: References to what had been created _(Optional)_
+	* `Conditionals`: List of conditions to perform resource actions _(Optional)_
+	* `Format Version`: _(Optional)_
+	* `Metadata`: _(Optional)_
 * Template helpers:
 	* References
 	* Functions

@@ -63,6 +63,8 @@
 * Default health check interval: 30 seconds
 * Fast health check interval: 10 seconds –> Higher costs
 * About 15 health checkers will check the endpoint _(1 request every 2 seconds on average)_
+* If more than 18% of the health checkers deems the endpoint healthy, Route53 treats it healthy
+* Health checker must return __HTTP status code of 2xx or 3xx! to deem healthy__
 * Can have
 	* TCP health checks
 	* HTTP health checks
