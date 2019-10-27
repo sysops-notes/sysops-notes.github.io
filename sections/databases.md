@@ -1,5 +1,15 @@
 # [Databases](../README.md)
 
+## DynamoDB
+
+* Fully managed, Multi-region, Multi-master Database
+* Built-in security, backup and restore, and in-memory caching
+
+### DAX (DynamoDB Accelerator)
+
+* Dully managed, highly available, in-memory cache for DynamoDB
+* Delivers up to a 10x performance improvement
+
 ## RDS
 
 * Managed Relational Database Service
@@ -150,13 +160,14 @@
 ## CloudWatch monitoring
 
 * Default __(Gathered from the hypervisor)__
-	* DatabaseConnections
-	* SwapUsage
-	* ReadIOPS / WriteIOPs
-	* ReadLatency / WriteLatency
-	* ReadThroughPut / WriteThroughPut
-	* DiskQueueLength
-	* FreeStorageSpace
+	* `DatabaseConnections`
+	* `SwapUsage`
+	* `ReadIOPS` / `WriteIOPs`
+	* `ReadLatency` / `WriteLatency`
+	* `ReadThroughPut` / `WriteThroughPut`
+	* `DiskQueueLength`
+	* `FreeStorageSpace`
+	* `FreeableMemory`
 * Enhanced monitoring __(Agent running on instance)__
 	* 50 new metrics CPU/Memory/File system/Disk etc..
 	* OS process list

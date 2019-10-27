@@ -28,6 +28,8 @@
 * Template helpers:
 	* References
 	* Functions
+* `TerminationProtection`
+	* * Can prevent stack from accidental deletes
 
 ### Retaining Data on Delete
 
@@ -36,10 +38,6 @@
 * `DeletionPolicy=Snapshot `: Only works on: EBS volume, ElastiCache, RDS, RedShift
 * `DeletionPolicy=Delete `: Default. Delete resource
 	* Note: Delete S3 bucket, first need to delete it's content
-
-### TerminationProtection
-
-* Can prevent stack from accidental deletes
 
 ## Nested stacks
 
@@ -50,6 +48,10 @@
 ## ChangeSets
 
 * Will say what will change/created/deleted but won't say if it will work
+
+## StackSet
+
+* Lets you provision a common set of AWS resources across multiple accounts and regions with a single CloudFormation template.
 
 ## Parameters
 

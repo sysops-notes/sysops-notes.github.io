@@ -99,6 +99,8 @@
 
 ### CloudWatch for EBS
 
+#### CloudWatch Metrics
+
 * Metrics
 	* `VolumeIdleTime`: Number of seconds when no read/write is submitted
 	* `VolumeQueueLength`: Number of operations waiting to be executed. (High number means probably IOPS or application issue)
@@ -110,6 +112,12 @@
 	* `Warning`: Performance below expected
 	* `Impaired`: Stalled, performance is severely degraded
 	* `Insufficient-data`: Metric data collection is in progress
+
+#### CloudWatch Events
+
+* EBS emits notification for volume, snapshot, and encryption status changes.
+* CloudWatch Events, you can establish rules that trigger programmatic actions in response
+	* E.g: Trigger Lambda to copy snapshot over to another region
 
 ### EBS For the Exam
 

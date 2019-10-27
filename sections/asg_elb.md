@@ -171,6 +171,8 @@
 	* Custom
 		* Send custom metrics to CW
 * Will not reboot instances, only terminate unhealthy ones
+* Using step-scaling policy, you can specify the number of seconds that it takes for a newly launched instance to warm up
+	* Until its specified warm-up time has expired, an instance is not counted toward the aggregated metrics of the Auto Scaling group
 
 ### Scaling processes
 

@@ -36,9 +36,16 @@
 	* Forces all `COPY` and `UNLOAD` traffic between your cluster and your data repositories through your VPC
 * Spectrum
 	* Primarily used to run queries against exabytes of unstructured data in Amazon S3
+* Automated backups
+	* Can configure to automatically copy snapshots (automated or manual) for a cluster to another region
 
 ## Step functions
+
 * Provides serverless orchestration for modern applications
 * Centrally manages a workflow by breaking it into multiple steps, adding flow logic, and tracking the inputs and outputs between the steps
+
+## SQS
+
+* `ApproximateNumberOfMessages`: Returns the approximate number of messages available for retrieval from the queue.
 
 ## [Back](../README.md)
