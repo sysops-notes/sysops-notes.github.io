@@ -49,6 +49,7 @@
 
 ## Billing alarms
 
+* Before you can create an alarm, you must enable billing alerts on your __Accounts Preferences__ page first
 * Stored in CloudWatch `us-east-1`
 * For overall worldwide costs
 * Overall (not by project) alarms

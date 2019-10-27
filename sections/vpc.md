@@ -19,7 +19,20 @@
 	* `172.16.0.0` – `172.31.255.255` _(172.16.0.0/12) AWS Default_
 	* `192.168.0.0` – `192.168.255.255` _(192.168.0.0/16)_
 
-## Default VPC
+## VPC
+
+* Soft limit: 5 VPC per region (can be increased)
+* Each CIDR
+	* Min size: `/28` –> 16 Addresses
+	* Max size: `/16` –> 65536 Addresses
+* Each VPC can have a maximum of 5 CIDRs (1 primary, 4 secondary)
+* Before being able to delete a VPC need to:
+	* Terminate all instances
+	* Delete all subnets
+	* Delete custom security groups and custom route tables
+	* Detach any internet gateways or virtual private gateways
+
+### Default VPC
 
 * All new accounts have a default VPC
 * New instances are launched into default VPC if none specified
@@ -33,20 +46,7 @@
 	* 1 Network ACL
 	* 1 Security group
 
-## VPC Overview
-
-* Soft limit: 5 VPC per region (can be increased)
-* Each CIDR
-	* Min size: `/28` –> 16 Addresses
-	* Max size: `/16` –> 65536 Addresses
-* Each VPC can have a maximum of 5 CIDRs (1 primary, 4 secondary)
-* Before being able to delete a VPC need to:
-	* Terminate all instances
-	* Delete all subnets
-	* Delete custom security groups and custom route tables
-	* Detach any internet gateways or virtual private gateways
-
-## Subnet Overview
+## Subnet
 
 * 1 Subnet is tied to 1 AZ
 * You can have multiple subnets in each AZ
@@ -70,7 +70,7 @@ Need at least /26. (/26 –> 64 - 5 = 59 IPs)
 * IGW is also a NAT for instances with Public IP
 * __Route tables are required to access the internet, just an IGW is not enough__
 
-### Route table
+## Route table
 
 * Need to associate subnets if not using the Main RT
 * Public RT

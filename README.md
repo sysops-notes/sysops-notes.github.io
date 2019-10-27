@@ -4,7 +4,7 @@
 
 ## [SSM & OpsWork](sections/ssm_and_opswork.md)
 
-## [ASG & LB (HA and scalability)](sections/ha_and_scalability.md)
+## [ASG & ELB (HA and scalability)](sections/asg_elb.md)
 
 ## [Elastic Beanstalk](sections/elastic_beanstalk.md)
 
@@ -12,9 +12,9 @@
 
 ## [EBS & EFS](sections/ebs_and_efs.md)
 
-## [S3 Fundamentals](sections/s3.md)
+## [S3 & Glacier](sections/s3.md)
 
-## [S3 Storage and Data management](sections/s3_management.md)
+## [Storage and Data management](sections/data_management.md)
 
 ## [Databases](sections/databases.md)
 
@@ -27,3 +27,5 @@
 ## [Route53](sections/route53.md)
 
 ## [VPC](sections/vpc.md)
+
+## [Additional](sections/additional.md)

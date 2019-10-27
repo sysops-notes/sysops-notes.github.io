@@ -178,7 +178,7 @@
 	* CSV report on all IAM users and credentials
 	* Shows who has MFA enabled
 
-## IAM Pass role
+### IAM Pass role
 
 * Ability to assign a role to an instance/resource
 

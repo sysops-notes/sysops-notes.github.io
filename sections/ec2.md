@@ -1,10 +1,24 @@
 # [EC2](../README.md)
 
-## Change instance type:
+## General
 
-* Stop instance
-* Change instance type
-* EBS backed -> Won't lose data
+* Provides resizable compute capacity in the cloud
+* Can set instance protection –> Protects from accidental terminates
+* Can chose shutdown behavior: `stop` _(default)_ or `terminate`
+* `m3.large` doesn't support IPv6 –> Upgrade to `m4`
+
+### Changing instance type:
+
+* First: Stop the instance
+* Second: Change instance type
+* If the instance is EBS backed it won't lose data!
+
+### Shutdown behavior
+
+* Stop _(default)_ or Terminate
+* Instance settings -> Change shutdown behavior
+* Through the OS (`sudo shutdown now`)
+> Instance protection activated && shutdown is terminate: Shutdown from the OS will RESULT IN TERMINATION of the instance
 
 ## Placement groups:
 
@@ -20,67 +34,34 @@
 * __Partition:__
 	* 7 partitions per AZ
 	* Up to 100 instances
-	* Big data distributed applications (HDFS, Kafka )
+	* Big data distributed applications (HDFS, Kafka)
 
-## Shutdown behavior (not same as instance protection)
+## Launch types
 
-* Stop _(default)_ or Terminate
-* Instance settings -> Change shutdown behavior
-* Through the OS (`sudo shutdown now`)
-> Instance protection activated && shutdown is terminate: Shutdown from the OS will RESULT IN TERMINATION of the instance
-
-## Launch troubleshooting
-
-* `#InstanceLimitExceeded`
-	* Maximum number of instances in the region is reached _(default: 20)_
-	* Resolution:
-		* ticket to increase
-		* use another region
-* `#InsufficientInstanceCapacity`
-	* AWS ran out of on-demand instances on the __AZ__!
-	* Resolution:
-		* Wait
-		* 1 at a time
-		* Change regions
-* Instance terminates Instantly (Pending to terminated)
-	* Reached EBS volume limit
-	* Corrupted EBS volume
-	* EBS encrypted and no access to KMS
-	* instance store missing a part
-	* Debug:
-		* State transition reason
-		* State transition message
-
-## SSH troubleshooting
-
-* `Unprotected key file`: pem doesn't have 400 permissions
-* `Host key not found`: wrong username
-* `Connection timeout`: SG misconfiguration or CPU is busy
-
-## Instance launch types
-
-* On-demand
+* `On-demand`
 	* Short workload, predictable pricing
-* Reserved
+* `Reserved`
 	* Long workloads (1 or 3 years)
-* Convertible
+* `Convertible`
 	* Reserved, but can change instance type
-* Scheduled
+* `Scheduled`
 	* Short window reserved
-* Spot
+	* For at least a one-year term!
+* `Spot`
 	* Bidding
 	* Cheap, can loose instances
 	* If instance is terminated before the first hour __BY AWS__ you don't pay anything
-* Dedicated instance
+* `Dedicated instance`
 	* Not sharing hardware
 	* Can share from the same account
-* Dedicated host
+* `Dedicated host`
 	* Entire server
 	* Control placement
 	* 3 years
 
-## Instance types [compare](ec2instances.info)
+## Instance types
 
+* [Compare online](https://ec2instances.info)
 * `R`
 	* RAM - memory heavy
 * `C`
@@ -94,17 +75,35 @@
 * `T2/T3 Burstable`
 * `T2/T3 Unlimited`
 
-## AMI
+## Troubleshooting
 
-* Region specific! ___(AMI ID will be different in each region)___
-* Stored in S3
-* Use public AMIs / Rent from third parties
-* Private and region locked by default
-* Copy (directly)
-	* Without "Create volume" permissions 
-		* Can't copy encrypted AMI
-		* Can't copy AMI with billingProduct
-		* Workaround: Launch instance from AMI then create new from it
+### Launch troubleshooting
+
+* `#InstanceLimitExceeded`
+	* Maximum number of instances in the region is reached _(default: 20)_
+	* Resolution:
+		* Ticket to increase
+		* Use another region
+* `#InsufficientInstanceCapacity`
+	* AWS ran out of on-demand instances on the __AZ__!
+	* Resolution:
+		* Wait
+		* 1 at a time
+		* Change regions
+* `Instance terminates Instantly` (Pending to terminated)
+	* Reached EBS volume limit
+	* Corrupted EBS volume
+	* EBS encrypted and no access to KMS
+	* Instance store missing a part
+	* Debug:
+		* State transition reason
+		* State transition message
+
+### SSH troubleshooting
+
+* `Unprotected key file`: pem doesn't have 400 permissions
+* `Host key not found`: wrong username
+* `Connection timeout`: SG misconfiguration or CPU is busy
 
 ## Elastic IP
 
@@ -112,12 +111,33 @@
 * 5 IP by default
 * Associate -> Disassociate -> Associate
 
-## CloudWatch monitoring
+## AMI
+
+* Amazon Machine Image
+* Provides the information required to launch an instance
+* Region specific! ___(AMI ID will be different in each region)___
+* Stored in S3
+* Use public AMIs / Rent from third parties
+* Private and region locked by default
+* Copy (directly)
+	* Without `Create volume` permissions
+		* Can't copy encrypted AMI
+		* Can't copy AMI with billingProduct
+		* Workaround: Launch instance from AMI then create new from it
+
+## CloudWatch
+
+### CloudWatch Logs
+
+* Default: No logs
+* Needs CW Agent installed
+
+## CloudWatch Monitoring
 
 * AWS provided
-	* CPU, Network , Disk, Status
-	* (Free) Default: 5 minutes
-	* (Paid) Detailed: 1 minutes
+	* CPU, Network , _Disk_, Status
+	* _(Free)_ Default: 5 minutes
+	* _(Paid)_ Detailed: 1 minutes
 * Custom (your responsibility):
 	* 1 minute, can be more frequent up to 1 sec
 	* RAM, application level metrics
@@ -131,10 +151,5 @@
 * Custom:
 	* CloudWatch agent or scripts
 	* Needs CW IAM permissions
-
-## CloudWatch logs
-
-* Default: no logs
-* Needs CW agent
 
 ## [Back](../README.md)

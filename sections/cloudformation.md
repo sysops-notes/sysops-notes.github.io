@@ -7,17 +7,17 @@
 * How it works
 	* Templates uploaded to S3
 	* Can't edit an existing one. -> Need to re-upload with the changes!
-		* Doesn't mean you can't change the options of a deployed stack
+		* Doesn't mean you can't change the options of a deployed stack, then apply the changes
 	* Stacks are identified by a name
 	* Deleting a stack deletes all resources created by it
 * Deploying templates
-	* Manual
+	* `Manual`
 		* CloudFormation Designer online
 		* Console to input parameters
-	* Automated
+	* `Automated`
 		* Editing yaml file
 		* AWS CLI to deploy templates
-* Config blocks:
+* Config blocks _(all are optional with the exception of Resources)_:
 	* __`Resources`: AWS resource, mandatory__
 	* `Parameters`: Dynamic inputs _(Optional)_
 	* `Mappings`: static variables _(Optional)_
@@ -174,7 +174,7 @@
 	* String must contain `${VariableName}` and will substitute them
 * `Conditionals`
 
-## User Data
+### User Data
 
 * `Fn::Base64`
 	``` yaml
@@ -189,7 +189,7 @@
 						yum install -y httpd
 	```
 
-## cfn-init
+### cfn-init
 
 * Must be in the metadata of the resource
 * Helps make complex ec2 configurations readable
@@ -231,9 +231,9 @@
 									ensureRunning: 'true'
 	```
 
-## cfn-signal & wait
+### cfn-signal & wait
 
-* cfn-init won't know if it run successfully unless checking logs
+* `cfn-init` won't know if it run successfully unless checking logs
 * `cfn-signal` after cfn-init to fail or continue based on outcome
 * Requires:
 	* `WaitCondition`

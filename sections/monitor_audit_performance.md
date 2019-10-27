@@ -22,7 +22,7 @@
 
 * Possible to define your own metrics
 * Able to use dimensions
-* Metric resolution is 1 minute (default), can go up tp every second _(extra fee)_
+* Metric resolution is 1 minute _(default)_, can go up tp every second _(extra fee)_
 * API: `PutMetricData`
 * Throttle errors -> Exponential back off
 
@@ -37,7 +37,7 @@
 	* 3 dashboards (up to 50 metrics): Free
 	* $3/month/dashboard 
 * How to create global dashboard -> Add metrics from different region
-* Cannot aggregate metrics from regional metrics!
+* __Cannot aggregate metrics from regional metrics!__
 
 ### Logs
 
@@ -53,9 +53,9 @@
 	* Route53: DNS queries
 * CW Logs can be exported to S3 or ElasticSearch
 * Architecture
-	* Log group
-	* Log streams
-	* Expire policy
+	* `Log group`
+	* `Log streams`
+	* `Expire policy`
 * Make sure IAMs are correct
 * Logs can be encrypted using KMS at group level
 * Can use filter expressions

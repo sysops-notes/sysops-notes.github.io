@@ -26,23 +26,41 @@
 * Spread load across multiple downstream instances
 * Seamlessly handle failures for downstream instances
 * Regular health checks
-* Provides SSL termination (CLB & ALB)
+* Provides SSL termination __(CLB & ALB)__
 * Enforce stickiness with cookies
 * ELB - EC2 Load balancer
 	* AWS managed
 	* Types
-		* Classic (v1) 2009
-		* Application (v2) 2016
-		* Network (v2) 2017
-	* Can be Private and Public
-* `4xx` client induced errors
-* `5xx` application induced errors
+		* `Classic` (v1) 2009
+		* `Application` (v2) 2016
+		* `Network` (v2) 2017
+	* Can be `Private` _(aka internal)_ and `Public`
+* `4xx` Client induced errors
+* `5xx` Application induced errors
+
+### Connections
+
+* If the front-end connection uses TCP or SSL, then the back-end connections can use either TCP or SSL.
+* If the front-end connection uses HTTP or HTTPS, then the back-end connections can use either HTTP or HTTPS.
+* If you use TCP _(layer 4)_ for both front-end and back-end connections, the load balancer __forwards__ the request to the back-end instances __without modifying the headers.__
+* If you use HTTP _(layer 7)_ for both front-end and back-end connections, the load balancer parses the headers in the request and __terminates the connection before sending the request__ to the back-end instances.
+
+### SSL
+
+* `Server Order Preference`
+* If enabled, LB will select the first cipher in its list that is also in the client's list of ciphers.
+* You can create a load balancer with the following security features
+	* `SSL Server Certificates`
+	* `SSL Negotiation`
+	* `Back-End Server Authentication`
+* For old browsers, need to change the security policy to allow weaker ciphers
+	* `ELBSecurityPolicy-TLS-1-0-2015-04`
 
 ### Application Load Balancer
 
-* Layer 7 (HTTP/HTTPS/Websocket)
+* __Layer 7__ (HTTP/HTTPS/Websocket)
 * URL Based routing (host or path)
-* Does not support static IP, but has a fixed DNS
+* __Does not support static IP, but has a fixed DNS__
 * Has port mapping feature -> redirect to any port
 * Multiple application on multi machine (`target groups`)
 * Multiple application on the SAME machine (`containers`)
@@ -51,11 +69,11 @@
 * The application servers don't see the clients' IP directly (its in `X-Forwarded-for` headers)
 * Latency: ~400ms
 * Adds a trace id to the header for each request: `X-Amzn-Trace-Id`
-* Not integrated with X-Ray (yet)
+* Not integrated with X-Ray _(yet)_
 
 ### Network Load Balancer
 
-* Later 4 (TCP)
+* __Layer 4__ (TCP)
 * __Millions of requests per seconds__ (High performance)
 * Supports static & elastic IPs
 	* 1 static IP per subnet
@@ -67,8 +85,8 @@
 * Client redirected to the same instance behind an LB
 * Cookie had an expiration date that can be controlled
 * LB -> Attributes -> Enable stickiness (1sec - 7days)
-* Can brin imbalance
- 
+* Can bring imbalance
+
 ### Exam tips
 * NLB in front of ALB => ALB having a static IP
 * Pre warming -> Support ticket
@@ -89,11 +107,6 @@
 	* `503`: __Service unavailable__
 	* `504`: Gateway timeout
 
-### SSL for old browsers
-
-* Change security policy to allow weaker ciphers
-	* `ELBSecurityPolicy-TLS-1-0-2015-04`
-
 ### Troubleshooting
 
 * Security groups
@@ -107,7 +120,7 @@
 	* `HTTP 503: Service unavailable` => Look for healthy host count! (there are instances and configured)
 	* `HTTP 504: Gateway timeout` => Keep alive timeout is greater than the idle timeout setting
 
-### LB Monitoring
+### Cloudwatch Monitoring - LB
 
 * All metrics are directly pushed to CW
 	* `BackendConnectionErrors`
@@ -175,19 +188,21 @@
 	* If `Terminate` is suspended, `AZRebalance` can create, but won't be able to terminate (rebalance can add go up with __10%__ of max)
 
 
-### Troubleshoot ASG
+### Troubleshooting ASG
 
 * `<number of instances> instance(s) are already running`: Increase __desired capacity__ of ASG
 * Launching EC2 is failed:
 	* SG is deleted
-* `Instance is in VPC. Failed to configure LB`
-	* LB is in a Classic VPC whereas the instance is launched in a VPC
-* `Instance is not in VPC. Failed to configure LB`
-	* ??
+* `EC2 instance is in VPC. Failed to configure LB`
+	* __Cause:__ The load balancer is in EC2-Classic but the Auto Scaling group is in a VPC
+	* __Resolution:__ Make sure both are in the same network
+* `EC2 instance is not in VPC. Failed to configure LB`
+	* __Cause:__ The specified instance does not exist in the VPC.
+	* __Resolution:__ Delete LB or Create new ASG
 * ASG fails to launch for 24 hours -> `Administration suspension` All processes are suspended
 	* Key pair is deleted
 
-### CW Metrics for ASG
+### CloudWatch Metrics for ASG
 
 * Available ASG _(Opt-in)_ metrics - Every _1 minute_
 	* `GroupMinSize`

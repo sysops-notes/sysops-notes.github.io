@@ -1,6 +1,6 @@
 # [Databases](../README.md)
 
-## RDS Overview
+## RDS
 
 * Managed Relational Database Service
 * Uses SQL as a query language
@@ -28,13 +28,35 @@
 * Can be same AZ, cross AZ or cross region
 * Write to master, read from any
 * __Application must update connection string to leverage read replicas__
+* Helps scale read traffic
+* Any read replica can be promoted as a standalone DB _(manually)_
+* Can be cross region!
+* Each read replica has it's own DNS
+* Can help with disaster recovery IF using cross region read replicas
+* Read replicas are not supported for Oracle
+* __Read replicas can be used to run BI/Analytics__ without affecting master performance
 
 ### Multi AZ (aka Disaster recovery)
 
 * `SYNC`
 * Only writes/reads from master
-* 1 DNS name => Automatic failover to standby
 * No manual intervention in apps
+* 1 DNS name => Automatic failover to standby
+* __Preferred for taking snapshots as it won't affect DB performance!__
+* Failover happens
+	* The primary DB instance fails
+	* AZ outage
+	* DB instance type is changed
+	* OS of the DB instance is undergoing software patching
+	* A manual failover of the DB instance _(Reboot with failover)_
+* No failover for
+	* Long running queries
+	* Deadlocks
+	* DB corruption errors
+* Endpoint is the same after the failover
+* __Lowers maintenance impact!__ Update happens on standby, if it was OK, it is promoted to master
+* Backups are created on the standby -> No impact on master performance
+* __Multi AZ is only in the same region!__
 
 ### Backups
 
@@ -46,6 +68,21 @@
 * Snapshots
 	* Manually triggered by user
 	* Retention as long as you want
+
+### Backups vs Snapshots
+
+* `Backups`
+	* Continuous
+	* Allows PITR
+	* Happens during maintenance window 
+	* When deleting a DB, you can retain the backups for a defined time period (but will be deleted eventually)
+* `Snapshots`
+	* Takes IO operations, can stop database
+	* Snapshots on MultiAZ won't affect the master
+	* Snapshots are incremental (after the first one, which is full)
+	* Can copy & share snapshots
+	* Manual snapshots never expire
+	* Can create a final snapshots when deleting a DB
 
 ### Encryption
 
@@ -65,60 +102,7 @@
 * IAM policies determines who can __manage__
 * Traditional username with password to __connect/login__
 	* IAM user can now be used too for MySQL/Aurora
-
-## RDS Multi AZ
-
-* Failover happens
-	* The primary DB instance fails
-	* AZ outage
-	* DB instance type is changed
-	* OS of the DB instance is undergoing software patching
-	* A manual failover of the DB instance _(Reboot with failover)_
-* No failover for
-	* Long running queries
-	* Deadlocks
-	* DB corruption errors
-* Endpoint is the same after the failover
-* __Lowers maintenance impact!__ Update happens on standby, if it was OK, it is promoted to master
-* Backups are created on the standby -> No impact on master performance
-* __Multi AZ is only in the same region!__
-
-## RDS Read replica
-
-* Helps scale read traffic
-* Any read replica can be promoted as a standalone DB (manually)
-* Can be cross region!
-* Each read replica has it's own DNS
-* Can help with disaster recovery IF using cross region read replicas
-* Read replicas are not supported for Oracle
-* __Read replicas can be used to run BI/Analytics__ without affecting master performance
-
-## Parameter groups
-
-* Configure DB engine
-* Dynamic parameters apply immediately
-* Static parameters apply after reboot
-* Can modify parameter group associated with DB (must reboot)
-* __`rds.force_ssl=1`__ Must know for the exam
-
-## RDS Backups vs Snapshots
-
-* Backups
-	* Continuous
-	* Allows PITR
-	* Happens during maintenance window 
-	* When deleting a DB, you can retain the backups for a defined time period (but will be deleted eventually)
-* Snapshots
-	* Takes IO operations, can stop database
-	* Snapshots on MultiAZ won't affect the master
-	* Snapshots are incremental (after the first one, which is full)
-	* Can copy & share snapshots
-	* Manual snapshots never expire
-	* Can create a final snapshots when deleting a DB
-
-
-## RDS Security
-
+* DB security groups are for database instances not in a VPC
 * Encryption at rest can only be enabled when creating the DB
 * Unencrypted DB -> take snapshot -> copy snapshot as encrypted -> create DB from snapshot (Same as EBS)
 * Your responsibility
@@ -132,7 +116,7 @@
 	* No manual OS patching
 	* No way to audit the underlying instance
 
-## RDS API
+### API commands
 
 * `DescribeDBInstances`
 	* Get a list of DB instances you have deployed
@@ -145,21 +129,15 @@
 * `RebootDBInstance`
 	* Forced failover by rebooting the db instance
 
-## CloudWatch
+### Parameter groups
 
-* Default (Gathered from the hypervisor)
-	* DatabaseConnections
-	* SwapUsage
-	* ReadIOPS / WriteIOPs
-	* ReadLatency / WriteLatency
-	* ReadThroughPut / WriteThroughPut
-	* DiskQueueLength
-	* FreeStorageSpace
-* Enhanced monitoring (Agent running on instance)
-	* 50 new metrics CPU/Memory/File system/Disk etc..
-	* OS process list
+* Configure DB engine
+* Dynamic parameters apply immediately
+* Static parameters apply after reboot
+* Can modify parameter group associated with DB (must reboot)
+* __`rds.force_ssl=1`__ Must know for the exam
 
-## RDS Performance Insights
+## Performance Insights
 
 * Visualize DB performance and analyse issues that affect it
 * Performance Insights Dashboard: can visualize load and filter it:
@@ -168,6 +146,20 @@
 	* __By Hosts__: Find which hosts are using the DB the most
 	* __By Users__: Find which user is using the DB the most
 * DBLoad = the number of active sessions for the DB engine
+
+## CloudWatch monitoring
+
+* Default __(Gathered from the hypervisor)__
+	* DatabaseConnections
+	* SwapUsage
+	* ReadIOPS / WriteIOPs
+	* ReadLatency / WriteLatency
+	* ReadThroughPut / WriteThroughPut
+	* DiskQueueLength
+	* FreeStorageSpace
+* Enhanced monitoring __(Agent running on instance)__
+	* 50 new metrics CPU/Memory/File system/Disk etc..
+	* OS process list
 
 ## Aurora
 
@@ -180,7 +172,7 @@
 * 20% more expensive (but more efficient too)
 * Backtrack (PITR without backups)
 
-### High availability
+### Aurora High availability
 
 * 6 copies of your data across 3 AZs
 	* 4 copies required to Write

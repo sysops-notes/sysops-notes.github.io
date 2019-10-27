@@ -21,7 +21,7 @@
 	* 1 new instance in temp ASG -> if healthy, add remaining
 	* Merge temp asg with previous
 	* Terminate old version in merged ASG
-* `Blue/Green deployment`: Not a "direct feature" of EB
+* `*Blue/Green deployment`: Not a "direct feature" of Elastic Beanstalk
 
 |                               |       Code deployed      |         Rollback        | Downtime | DNS Change |
 |:-----------------------------:|:------------------------:|:-----------------------:|:--------:|:----------:|
@@ -42,16 +42,16 @@
 	* EC2 gets new code
 	* EC2 resolves new dependencies (can take a lot of time)
 	* Apps are swapped
-	* Question: How to make it fast?
+	* `Question: How to make it fast?`
 		* Use a golden AMI
 
-### Troubleshooting
+## Troubleshooting
 
-* Env turns to Red
+* `Environment turns to Red`
 	* Review environment events
 	* Pull logs
-	* Rollback previous version
-* Environment couldn't launch. EC2 instance profile doesn't exists.
+	* Rollback to previous version
+* `Environment couldn't launch. EC2 instance profile doesn't exists.`
 	* IAM role doesn't exists
 	* IAM role doesn't have enough permissions
 * Make sure SG are correctly configured if accessing external resources

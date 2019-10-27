@@ -2,7 +2,7 @@
 
 Managing EC2 at scale
 
-## Systems Manager (SSM) - general
+## Systems Manager (SSM)
 
 * Manage EC2 and on-premise
 * Operational insights
@@ -12,22 +12,20 @@ Managing EC2 at scale
 * Free
 * Requires SSM agent to be installed
 * Requires IAM permissions 
-
-## SSM ()
-
 * __Regional__ Resource groups (based on tags) -> Easy patching
 * `Documents`: yaml or json, common denominator between SSM features
 * `Run command`:
 	* Executes a document or just a run command
 * Patch:
-	* Inventory                          => List software on an instance
-	* Inventory + Run command            => Patch software
-	* Patch manager + maintenance window => Patch OS
-	* Patch manager                      => Gives compliance
-	* State manager                      => Ensures instances are in a compliant state
+	* `Inventory`                          => List software on an instance
+	* `Inventory + Run command`            => Patch software
+	* `Patch manager + maintenance window` => Patch OS
+	* `Patch manager`                      => Gives compliance
+	* `State manager`                      => Ensures instances are in a compliant state
 * Session manager
+* Parameter Store
 
-## Lost SSH key to EC2
+### Lost SSH key to EC2
 
 * EBS Backed
 	* Method 1: Manual
@@ -42,7 +40,7 @@ Managing EC2 at scale
 	* Nothing to do, terminate instance
 	* _(Could use SSM)_
 
-## Parameter Store
+### Parameter Store
 
 * Secure storage
 * Seamless encryption (KMS)
@@ -50,8 +48,11 @@ Managing EC2 at scale
 * Version tracked
 * IAM controlled
 * Notification through CW Events (modified/deleted etc)
-* `GetParameters` and `GetParametersByPath`
-* `--with-encryption`
+* Can integrate Parameter Store with CloudFormation to automate operational processes
+	* E.g.: Change AMI ID for Stacks
+* CLI Commands to be aware
+	* `GetParameters` and `GetParametersByPath`
+	* `--with-encryption`
 
 ## OpsWorks
 
