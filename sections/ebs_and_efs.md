@@ -39,7 +39,7 @@
 	* Provisioned IOPS Volume size is 10 GiB, what is the maximum value that can be put as the IOPS?
 		* 500
 
-## EBS Volume resize
+### EBS Volume resize
 
 * Can only increase
 	* Volume size
@@ -47,7 +47,7 @@
 * After resize, __need to repartition the drive!__
 * Can do it while its being used
 
-## EBS Snapshots
+### EBS Snapshots
 
 * __Incremental__: only backs up changed blocks
 * Backups use the disk's I/O (don't run backup when handling workload)
@@ -58,13 +58,13 @@
 * EBS volumes restored from snapshots need to be pre-warmed (`fio` pr `dd`)
 * Snapshots can be automated via `Amazon Data Lifecycle Manager`
 
-## EBS Migration
+### EBS Migration
 
 * Snapshot volume
 * _(Optional) Copy to another region_
 * Create a volume from the snapshot in the AZ of your choice
 
-## EBS Encryption
+### EBS Encryption
 
 * All encryption is handled by Amazon _(KMS: AES-256)_
 * Impact is minimal
@@ -77,6 +77,48 @@
 	* Encrypt snapshot
 	* Create new volume from encrypted snapshot
 	* Attach new volume in place of the old
+
+### EBS RAID
+
+* EBS is already redundant (Replicated withing AZ)
+* RAID is possible as long as the OS supports it (have to do it through OS, not an Amazon "feature")
+	* `RAID 0`
+		* __Increase performance__
+		* If 1 disk fails, you lose data
+		* Could go to 10K IOPS -> 10 disk each having 1k IOPS
+		* Use cases
+			* Application needs a lot of IOPS and doesn't need fault tolerance
+			* DB that has replication built-in
+	* `RAID 1`
+		* __Increase fault tolerance by Mirroring__
+		* Have to send data to 2 EBS -> 2x Network
+		* Use cases
+			* Application that needs to increase volume fault tolerance
+	* RAID 5 - Not recommended for EBS 
+	* RAID 6 - Not recommended for EBS 
+
+### CloudWatch for EBS
+
+* Metrics
+	* `VolumeIdleTime`: Number of seconds when no read/write is submitted
+	* `VolumeQueueLength`: Number of operations waiting to be executed. (High number means probably IOPS or application issue)
+	* `BurstBalance`: If becomes 0, need a volume with more IOPS
+* GP2: every 5 minutes
+* IO1: every 1 minutes
+* EBS Volume have status checks
+	* `Ok`: Performing good
+	* `Warning`: Performance below expected
+	* `Impaired`: Stalled, performance is severely degraded
+	* `Insufficient-data`: Metric data collection is in progress
+
+### EBS For the Exam
+
+* If you want to use the root volume after termination -> Set `Delete on Termination` to `No`
+* If you use EBS for high-performance: Use EBS optimized instance types
+* EBS volume is unused -> Still paying for that
+* High wait times / Slow response from SSD -> increase IOPS 
+* EC2 won't start with EBS set as root volume (Don't name it `/dev/xvda`)
+* After increasing volume size, still need to repartition it
 
 ## Instance Store
 
@@ -96,48 +138,6 @@
 		* On stop/termination data is lost
 		* Can't resize volume
 		* Backups must be operated by the user
-
-## EBS For the Exam
-
-* If you want to use the root volume after termination -> Set `Delete on Termination` to `No`
-* If you use EBS for high-performance: Use EBS optimized instance types
-* EBS volume is unused -> Still paying for that
-* High wait times / Slow response from SSD -> increase IOPS 
-* EC2 won't start with EBS set as root volume (Don't name it `/dev/xvda`)
-* After increasing volume size, still need to repartition it
-
-## EBS RAID
-
-* EBS is already redundant (Replicated withing AZ)
-* RAID is possible as long as the OS supports it (have to do it through OS, not an Amazon "feature")
-	* `RAID 0`
-		* __Increase performance__
-		* If 1 disk fails, you lose data
-		* Could go to 10K IOPS -> 10 disk each having 1k IOPS
-		* Use cases
-			* Application needs a lot of IOPS and doesn't need fault tolerance
-			* DB that has replication built-in
-	* `RAID 1`
-		* __Increase fault tolerance by Mirroring__
-		* Have to send data to 2 EBS -> 2x Network
-		* Use cases
-			* Application that needs to increase volume fault tolerance
-	* RAID 5 - Not recommended for EBS 
-	* RAID 6 - Not recommended for EBS 
-
-## CloudWatch for EBS
-
-* Metrics
-	* `VolumeIdleTime`: Number of seconds when no read/write is submitted
-	* `VolumeQueueLength`: Number of operations waiting to be executed. (High number means probably IOPS or application issue)
-	* `BurstBalance`: If becomes 0, need a volume with more IOPS
-* GP2: every 5 minutes
-* IO1: every 1 minutes
-* EBS Volume have status checks
-	* `Ok`: Performing good
-	* `Warning`: Performance below expected
-	* `Impaired`: Stalled, performance is severely degraded
-	* `Insufficient-data`: Metric data collection is in progress
 
 ## EFS
 

@@ -37,6 +37,7 @@
 	* Can be `Private` _(aka internal)_ and `Public`
 * `4xx` Client induced errors
 * `5xx` Application induced errors
+* `Cross Zone Load Balancing`: Distribute traffic across all registered instances in all enabled AZs
 
 ### Connections
 
@@ -120,7 +121,7 @@
 	* `HTTP 503: Service unavailable` => Look for healthy host count! (there are instances and configured)
 	* `HTTP 504: Gateway timeout` => Keep alive timeout is greater than the idle timeout setting
 
-### Cloudwatch Monitoring - LB
+### Cloudwatch Monitoring
 
 * All metrics are directly pushed to CW
 	* `BackendConnectionErrors`
@@ -202,7 +203,7 @@
 * ASG fails to launch for 24 hours -> `Administration suspension` All processes are suspended
 	* Key pair is deleted
 
-### CloudWatch Metrics for ASG
+### CloudWatch Metrics
 
 * Available ASG _(Opt-in)_ metrics - Every _1 minute_
 	* `GroupMinSize`

@@ -29,6 +29,28 @@
 	* References
 	* Functions
 
+### Retaining Data on Delete
+
+* Can put `DeletionPolicy` on any resource
+* `DeletionPolicy=Retain`: Will preserve/backup resource
+* `DeletionPolicy=Snapshot `: Only works on: EBS volume, ElastiCache, RDS, RedShift
+* `DeletionPolicy=Delete `: Default. Delete resource
+	* Note: Delete S3 bucket, first need to delete it's content
+
+### TerminationProtection
+
+* Can prevent stack from accidental deletes
+
+## Nested stacks
+
+* Isolate repeated patterns
+* E.g.: LoadBalancer configuration
+* Update parent stack -> Triggers update on nested stacks
+
+## ChangeSets
+
+* Will say what will change/created/deleted but won't say if it will work
+
 ## Parameters
 
 * Provide inputs to the template
@@ -265,27 +287,5 @@
 		* `Delete`
 * Stack update fails:
 	* Auto rollback to previous state
-
-## Nested stacks
-
-* Isolate repeated patterns
-* E.g.: LoadBalancer configuration
-* Update parent stack -> Triggers update on nested stacks
-
-## ChangeSets
-
-* Will say what will change/created/deleted but won't say if it will work
-
-## Retaining Data on Delete
-
-* Can put `DeletionPolicy` on any resource
-* `DeletionPolicy=Retain`: Will preserve/backup resource
-* `DeletionPolicy=Snapshot `: Only works on: EBS volume, ElastiCache, RDS, RedShift
-* `DeletionPolicy=Delete `: Default. Delete resource
-	* Note: Delete S3 bucket, first need to delete it's content
-
-## TerminationProtection
-
-* Can prevent stack from accidental deletes
 
 ## [Back](../README.md)

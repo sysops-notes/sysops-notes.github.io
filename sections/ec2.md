@@ -7,7 +7,7 @@
 * Can chose shutdown behavior: `stop` _(default)_ or `terminate`
 * `m3.large` doesn't support IPv6 –> Upgrade to `m4`
 
-### Changing instance type:
+### Changing instance type
 
 * First: Stop the instance
 * Second: Change instance type
@@ -20,7 +20,7 @@
 * Through the OS (`sudo shutdown now`)
 > Instance protection activated && shutdown is terminate: Shutdown from the OS will RESULT IN TERMINATION of the instance
 
-## Placement groups:
+## Placement groups
 
 * __Cluster:__ 
 	* Single AZ low latency
@@ -132,7 +132,7 @@
 * Default: No logs
 * Needs CW Agent installed
 
-## CloudWatch Monitoring
+### CloudWatch Monitoring
 
 * AWS provided
 	* CPU, Network , _Disk_, Status
