@@ -2,16 +2,16 @@
 
 ## AutoScaling
 
-* Amazon EC2
+* `Amazon EC2`
 	* Launch or terminate Amazon EC2 instances in an Amazon EC2 Auto Scaling group.
-* Amazon EC2 Spot Fleets
+* `Amazon EC2 Spot Fleets`
 	* Launch or terminate instances from an Amazon EC2 Spot Fleet
 	* Automatically replace instances that get interrupted for price or capacity reasons
-* Amazon ECS
+* `Amazon ECS`
 	* Adjust ECS service desired count up or down to respond to load variations.
-* Amazon DynamoDB
+* `Amazon DynamoDB`
 	* Enable a DynamoDB table or a global secondary index to increase its provisioned read and write capacity to handle sudden increases in traffic without
-* Amazon Aurora
+* `Amazon Aurora`
 	* Dynamically adjust the number of Aurora Read Replicas provisioned for an Aurora DB cluster to handle sudden increases in active connections or workload.
 
 ## Backup

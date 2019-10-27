@@ -49,7 +49,7 @@
 ### SSL
 
 * `Server Order Preference`
-* If enabled, LB will select the first cipher in its list that is also in the client's list of ciphers.
+	* If enabled, LB will select the first cipher in its list that is also in the client's list of ciphers.
 * You can create a load balancer with the following security features
 	* `SSL Server Certificates`
 	* `SSL Negotiation`
@@ -63,13 +63,13 @@
 * URL Based routing (host or path)
 * __Does not support static IP, but has a fixed DNS__
 * Has port mapping feature -> redirect to any port
-* Multiple application on multi machine (`target groups`)
-* Multiple application on the SAME machine (`containers`)
+	* Multiple application on multi machine (`target groups`)
+	* Multiple application on the SAME machine (`containers`)
 * Route and Host based load balancing
 * Stickiness via cookies
 * The application servers don't see the clients' IP directly (its in `X-Forwarded-for` headers)
 * Latency: ~400ms
-* Adds a trace id to the header for each request: `X-Amzn-Trace-Id`
+* Adds a `Trace ID` to the header for each request: `X-Amzn-Trace-Id`
 * Not integrated with X-Ray _(yet)_
 
 ### Network Load Balancer

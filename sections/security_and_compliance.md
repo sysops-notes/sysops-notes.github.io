@@ -76,7 +76,7 @@
 * Service logs
 	* `CloudTrail`: Trace API calls
 	* `Config Rules`: Compliance over time
-	* `CloudWatch Logs`: data retention
+	* `CloudWatch Logs`: Data retention
 	* `VPC Flow Logs`: IP Traffic within your VPC
 	* `ELB Access Logs`: Metadata of request to the LBs
 	* `CloudFront Logs`: Web distribution logs

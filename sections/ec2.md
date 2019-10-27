@@ -4,7 +4,7 @@
 
 * Provides resizable compute capacity in the cloud
 * Can set instance protection –> Protects from accidental terminates
-* Can chose shutdown behavior: `stop` _(default)_ or `terminate`
+* Can choose shutdown behavior: `stop` _(default)_ or `terminate`
 * `m3.large` doesn't support IPv6 –> Upgrade to `m4`
 
 ### Changing instance type
