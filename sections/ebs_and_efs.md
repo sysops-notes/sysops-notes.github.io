@@ -116,7 +116,7 @@
 #### CloudWatch Events
 
 * EBS emits notification for volume, snapshot, and encryption status changes.
-* CloudWatch Events, you can establish rules that trigger programmatic actions in response
+* With CloudWatch Events you can establish rules that trigger programmatic actions in response
 	* E.g: Trigger Lambda to copy snapshot over to another region
 
 ### EBS For the Exam

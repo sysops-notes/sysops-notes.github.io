@@ -7,7 +7,7 @@
 
 ### DAX (DynamoDB Accelerator)
 
-* Dully managed, highly available, in-memory cache for DynamoDB
+* Fully managed, highly available, in-memory cache for DynamoDB
 * Delivers up to a 10x performance improvement
 
 ## RDS

@@ -82,8 +82,8 @@
 	* __Volume gateway__: View volumes locally on-premise but they are backed in EBS
 		* __iSCSI__ Protocol backed by S3
 		* Backed by EBS snapshots
-		* Cached volumes: Low latency access to most recent data
-		* Stored volumes: Entire dataset is on-premise, scheduled backups to S3
+		* `Cached volumes`: Low latency access to most recent data
+		* `Stored volumes`: Entire dataset is on-premise, scheduled backups to S3
 	* __Tape gateway__: View archives locally on-premise but they are backed in Glacier
 		* Backups
 		* Virtual Tape Library (VTL)

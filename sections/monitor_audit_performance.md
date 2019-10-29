@@ -99,9 +99,9 @@
 * Can put to CW Logs
 * If a resource is deleted, look in CloudTrail _(to see who did that)_
 * Stores for 90 days (then you need to store them somewhere else if you want to keep them)
-* Default UI only shows `Create` `Modify` and `Delete` events
+* Default UI only shows `Create`, `Modify` and `Delete` events
 * __CloudTrail has an option to validate file integrity__
-	* E.g. Can detect if the log file has been change after it has been written to S3
+	* E.g. Can detect if the log file has been changed after it has been written to S3
 * Can create Trails
 	* Detailed list of every event you select
 	* Can store them in S3

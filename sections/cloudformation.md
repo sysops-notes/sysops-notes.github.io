@@ -29,15 +29,15 @@
 	* References
 	* Functions
 * `TerminationProtection`
-	* * Can prevent stack from accidental deletes
+	* Can prevent stack from accidental deletes
 
 ### Retaining Data on Delete
 
 * Can put `DeletionPolicy` on any resource
-* `DeletionPolicy=Retain`: Will preserve/backup resource
-* `DeletionPolicy=Snapshot `: Only works on: EBS volume, ElastiCache, RDS, RedShift
-* `DeletionPolicy=Delete `: Default. Delete resource
-	* Note: Delete S3 bucket, first need to delete it's content
+	* `DeletionPolicy=Retain`: Will preserve/backup resource
+	* `DeletionPolicy=Snapshot `: Only works on: EBS volume, ElastiCache, RDS, RedShift
+	* `DeletionPolicy=Delete `: Default. Delete resource
+* Note: To delete S3 bucket, first need to delete it's content
 
 ## Nested stacks
 
