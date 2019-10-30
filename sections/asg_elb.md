@@ -28,6 +28,7 @@
 * Regular health checks
 * Provides SSL termination __(CLB & ALB)__
 * Enforce stickiness with cookies
+	* Cookie: `AWSELB`
 * ELB - EC2 Load balancer
 	* AWS managed
 	* Types
@@ -173,7 +174,8 @@
 * Will not reboot instances, only terminate unhealthy ones
 * Using step-scaling policy, you can specify the number of seconds that it takes for a newly launched instance to warm up
 	* Until its specified warm-up time has expired, an instance is not counted toward the aggregated metrics of the Auto Scaling group
-
+* Can create an ASG out of an Instance!
+	* AutoScaling will automatically create the LC based on the instance
 ### Scaling processes
 
 * Can suspend processes: ASG won't do those actions!

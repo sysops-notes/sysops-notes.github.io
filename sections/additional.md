@@ -14,12 +14,24 @@
 * `Amazon Aurora`
 	* Dynamically adjust the number of Aurora Read Replicas provisioned for an Aurora DB cluster to handle sudden increases in active connections or workload.
 
+## CodeDeploy
+
+* The deployment group contains settings and configurations used during the deployment
+
 ## Backup
 
 * Backup and restore
 * Pilot light
 * Warm standby
 * Multisite
+
+## Elastic MapReduce (EMR)
+
+* Amazon EMR is the industry leading cloud-native big data platform, allowing teams to process vast amounts of data quickly, and cost-effectively at scale
+
+## Limits Monitor
+
+* Automatically provisions the services necessary to proactively track resource usage and send notifications as you approach limits
 
 ## Kinesis
 
@@ -38,6 +50,10 @@
 	* Primarily used to run queries against exabytes of unstructured data in Amazon S3
 * Automated backups
 	* Can configure to automatically copy snapshots (automated or manual) for a cluster to another region
+* Amazon Redshift logs information in the following log files
+	* `Connection log`: Logs authentication attempts, and connections and disconnections.
+	* `User log`: Logs information about changes to database user definitions.
+	* `User activity log`: Logs each query before it is run on the database.
 
 ## Step functions
 
@@ -47,5 +63,6 @@
 ## SQS
 
 * `ApproximateNumberOfMessages`: Returns the approximate number of messages available for retrieval from the queue.
+* Messages that can't be processed (consumed) successfully can be forwarded for `Dead-letter queues`
 
 ## [Back](../README.md)

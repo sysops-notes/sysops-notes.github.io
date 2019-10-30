@@ -188,6 +188,7 @@ Need at least /26. (/26 –> 64 - 5 = 59 IPs)
 
 * Captures information about IP traffic that is going into your interfaces
 	* VPC Flow logs
+		* Cannot enable for ENIs on EC2-Classic platform
 	* Subnet Flow logs
 	* Elastic Network Interface logs
 * Helps to monitor & troubleshoot connectivity issues

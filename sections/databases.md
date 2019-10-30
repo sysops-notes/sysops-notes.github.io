@@ -75,6 +75,7 @@
 	* Daily full snapshot
 	* Capture transaction logs in real-time => PITR recovery
 	* 7 days backup retention => Can increased to 35 days max
+* If using Read replicas, you must use at least 1 day as a backup retention!
 * Snapshots
 	* Manually triggered by user
 	* Retention as long as you want
@@ -104,6 +105,11 @@
 * Connect using SSL:
 	* Provide the SSL trust certificate (can be downloaded from AWS)
 	* Provide SSL option when connecting to database
+* Read replicas are encrypted with the same KMS key in the SAME REGION
+* DB instances that are encrypted can't be modified to disable encryption.
+* Can't have an encrypted Read Replica of an unencrypted DB instance
+* Can't have an unencrypted Read Replica of an encrypted DB instance.
+* Can't restore an unencrypted backup or snapshot to an encrypted DB instance.
 
 ### Security
 

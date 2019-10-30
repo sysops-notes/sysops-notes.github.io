@@ -141,6 +141,12 @@
 	* User keys: $1/month
 	* User keys imported __(must be 256-bit symmetric key)__: $1/month
 * Fee for API calls to KMS _($0.03/10000 calls)_
+* To delete a CMK in AWS KMS you must schedule key deletion
+	* The default waiting period is 30 days
+	* Minimum of 7 days
+	* During the waiting period
+		* A CMK that is pending deletion cannot be used in any cryptographic operations.
+		* AWS KMS does not rotate the backing keys of CMKs that are pending deletion.
 
 ### Encryption
 
