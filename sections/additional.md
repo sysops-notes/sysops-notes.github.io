@@ -60,9 +60,4 @@
 * Provides serverless orchestration for modern applications
 * Centrally manages a workflow by breaking it into multiple steps, adding flow logic, and tracking the inputs and outputs between the steps
 
-## SQS
-
-* `ApproximateNumberOfMessages`: Returns the approximate number of messages available for retrieval from the queue.
-* Messages that can't be processed (consumed) successfully can be forwarded for `Dead-letter queues`
-
 ## [Back](../README.md)

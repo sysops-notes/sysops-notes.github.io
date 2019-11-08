@@ -108,6 +108,8 @@
 ## Elastic IP
 
 * Mask failure of an instance or service by quickly remapping the address
+* Static, persistent public IP addresses which can be associated and disassociated with the instance
+* Allocated at an VPC and owned by the account unless released
 * 5 IP by default
 * Associate -> Disassociate -> Associate
 
@@ -151,5 +153,6 @@
 * Custom:
 	* CloudWatch agent or scripts
 	* Needs CW IAM permissions
+* __Aggregate statistics__ are available for the instances that have __detailed monitoring__
 
 ## [Back](../README.md)

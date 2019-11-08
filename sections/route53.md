@@ -8,6 +8,11 @@
 	* `AAAA`: URL –> IPv6
 	* `CNAME`: URL –> URL
 	* `ALIAS`: URL –> AWS Resource
+	* `MX`: Mail Exchange
+	* `NS`: Name server
+	* `SOA`: Start Of Authority
+	* `SPF`: Sender Policy Framework)
+	* `SRV`: The first three values are decimal numbers representing priority, weight, and port. The fourth value is a domain name
 * Available features
 	* Load balancing (through DNS, also called as Client load balancing)
 	* Health checks (although limited)
@@ -111,5 +116,11 @@
 	* Create new hosted zone in R53
 	* Copy the name servers from R53 hosted zone over where you registered your domain
 	* Update the name servers there to use the one from 3)
+
+## Route 53 Split-view (Split-horizon) DNS
+
+* Route 53 Split-view (Split-horizon) DNS enables you to access an internal version of your website using the same domain name that is used publicly
+* You can maintain both a private and public hosted zone with the same domain name for split-view DNS with Route 53
+* DNS queries will respond with answers based on the source of the request
 
 ## [Back](../README.md)

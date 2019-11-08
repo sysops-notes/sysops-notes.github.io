@@ -36,6 +36,8 @@
 	* Delete all subnets
 	* Delete custom security groups and custom route tables
 	* Detach any internet gateways or virtual private gateways
+* The primary Private IP address is kept until instance is terminated
+* The primary Public IP address is lost on instance stop, reboot or terminate
 
 ### Default VPC
 
@@ -129,10 +131,10 @@ Need at least /26. (/26 –> 64 - 5 = 59 IPs)
 	* If true, assigns a public hostname to EC2 instances if it has a public IP
 * If you use a custom DNS domain names in a private zone R53, both must be set to true
 
-## Network ACL (vs Security groups)
+## Network ACL
 
-* Network ACL is on the subnet level
-* Security groups are on the instance level
+* Network ACL is on the subnet level (Security Groups are on the instance level)
+* __Stateless__
 * Evaluation order
 	* Network ACL Inbound rules
 	* Security group Inbound rules
@@ -152,6 +154,16 @@ Need at least /26. (/26 –> 64 - 5 = 59 IPs)
 * The rule with the lowest number that matched will be used (aka Not all rules will be evaluated)
 * Newly created Network ACLs will deny everything
 * Ephemeral ports must be opened if the ACL is restrictive (High numbered ports for TCP connection)
+
+## Security groups
+
+* Acts at an Instance level
+* An instance can be assigned 5 security groups
+* Each security group can have up to 50 rules
+* Can only specify `Allow` rules
+* Security groups are Stateful
+	* If allowed inbound, outbound will be allowed regardless
+	* If allowed outbound, inbound will be allowed regardless
 
 ## VPC Peering
 

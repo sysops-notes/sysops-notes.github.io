@@ -7,10 +7,18 @@
 * Metrics for all AWS services
 * Metric is a variable to monitor
 * Metrics belong to __namespaces__ (groups)
+* __Namespace is mandatory!__
 * __Dimension__ is an attribute of a metric (instance_id, env, etc...)
 * Up to 10 dimensions
 * Metrics have timestamps
+* Metrics exist only in the region in which they are created
+* Metrics cannot be deleted, but they automatically expire in 14 days if no new data is published to them
+* Retention
+	* One minute data points are available for 15 days.
+	* Five minute data points are available for 63 days.
+	* One hour data points are available for 455 days (15 months).
 * Can create a dashboard out of metrics
+* Can aggregate metrics
 
 #### EC2 Detailed monitoring
 
@@ -24,7 +32,11 @@
 * Able to use dimensions
 * Metric resolution is 1 minute _(default)_, can go up tp every second _(extra fee)_
 * API: `PutMetricData`
+	* Can only publish one data point per call
+* __CloudWatch aggregates the data to a minimum granularity of 1 minute__
+* Time stamp can be up to __2 weeks in the past__ and up to __2 hours into the future__
 * Throttle errors -> Exponential back off
+* New metrics can take 15 minutes to show up in the console
 
 ### Dashboard
 
@@ -42,6 +54,8 @@
 ### Logs
 
 * Application can send logs using CLI
+* By default it stores the log data indefinitely
+* Retention can be changed for each log group at any time
 * AWS Services that are logging directly:
 	* ElasticBeanstalk
 	* ECS
@@ -68,6 +82,9 @@
 
 * Trigger notification on any metric
 * Alarms can go to Auto Scaling, EC2 Actions, SNS notifications
+* Alarms exist only in the region in which they are created.
+* Alarm actions must reside in the same region as the alarm
+* Alarm history is available for the last 14 days.
 * Various options (sampling, %, min, max, etc...)
 * Alarm states
 	* `OK`
@@ -102,12 +119,18 @@
 * Default UI only shows `Create`, `Modify` and `Delete` events
 * __CloudTrail has an option to validate file integrity__
 	* E.g. Can detect if the log file has been changed after it has been written to S3
+* A trail can be applied to all regions or a single region
+* A single SNS topic for notifications and CloudWatch Logs log group for events would suffice for all regions
 * Can create Trails
 	* Detailed list of every event you select
 	* Can store them in S3
 	* If trails are put to S3, they have SSE-S3 encryption by default (can choose KMS)
 	* Control via IAMs or Bucket policies
 	* Can be region specific or global
+* CloudTrail supports five trails per region
+* A trail that applies to all regions counts as one trail in every region
+* __For global services__ such (`IAM`, `AWS STS`, `CloudFront`) events are delivered to __any trail__ that has the __Include global services option enabled__
+* `AWS OpsWorks` and `Route53` actions are logged in the __US East (N. Virginia) region__
 
 ## Config
 
@@ -119,10 +142,19 @@
 	* Is there unrestricted SSH access to my SGs
 	* Is there any S3 buckets with public access
 	* How my ALB configuration changed
-	* etc...
+* Use cases
+	* Security Analysis & Resource Administration
+	* Auditing & Compliance
+	* Change Management
+	* Troubleshooting
+	* Discovery
 * Can receive alerts _(SNS notification)_ on changes
 * Regional service
+* AWS Config creates configuration items for every supported resource in the region
 * Can be aggregated across multiple accounts/regions
+* In cases where several configuration changes are made to a resource in quick succession (within a span of few minutes), It will only record the latest configuration of that resource
+* AWS Config does not cover all the AWS services
+	* The configuration management process can be automated using API + code
 
 ### Config rules
 

@@ -9,6 +9,8 @@
 	* Requires no administrative overhead and little configuration
 	* Supports the HTTP over SSL (HTTPS) and Transport Layer Security (TLS) protocols for security
 * SQS provides two types of Queues – `Standard` & `FIFO`
+* `ApproximateNumberOfMessages`: Returns the approximate number of messages available for retrieval from the queue.
+* Messages that can't be processed (consumed) successfully can be forwarded for `Dead-letter queues`
 
 ## Standard Queues
 

@@ -10,6 +10,16 @@
 	* Application
 	* Application versions
 	* Environment name
+* Tiers
+	* Web server environment
+		* ELB, ASG, EC2
+		* Host manager running on the instances
+	* Worker environment
+		* ASG, EC2, IAM role
+		* SQS queue
+		* Daemon (pulling messages/sending messages to web server)
+* 1 Environment can only support 1 tier!
+* An S3 bucket is created for each region in which environments is created `elasticbeanstalk-<region>-<account-id>`
 
 ## Deployment modes
 
