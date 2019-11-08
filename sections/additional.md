@@ -43,6 +43,8 @@
 
 ## Redshift
 
+* Redshift is a `Data warehouse`
+	* Specialized type of relational database, which is optimized for analysis and reporting of large amounts of data
 * Petabyte storage service for OLAP applications.
 * Enhanced VPC Routing
 	* Forces all `COPY` and `UNLOAD` traffic between your cluster and your data repositories through your VPC

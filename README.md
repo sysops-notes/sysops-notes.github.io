@@ -28,4 +28,14 @@
 
 ## [VPC](sections/vpc.md)
 
+## [API Gateway](sections/api_gw.md)
+
+## [Lambda](sections/lambda.md)
+
+## [SNS](sections/sns.md)
+
+## [SQS](sections/sqs.md)
+
 ## [Additional](sections/additional.md)
+
+## [Whitepapers](sections/whitepapers.md)
