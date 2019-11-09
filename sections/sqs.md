@@ -1,4 +1,4 @@
-# [API Gateway](../README.md)
+# [SQS](../README.md)
 
 ## General
 

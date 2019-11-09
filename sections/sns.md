@@ -1,4 +1,4 @@
-# [API Gateway](../README.md)
+# [SNS](../README.md)
 
 ## General
 
@@ -10,7 +10,7 @@
 		* Notifications will be delivered through an HTTP POST to the specified URL
 	* `Email, Email-JSON`
 		* Messages are sent to registered addresses as email
-		* `Email-JSON` sends notifications as a JSON object, while Email sends text-based email
+		* Email-JSON sends notifications as a JSON object, while Email sends text-based email
 	* `SQS`
 		* Users can specify an SQS queue as the endpoint
 		* SNS will enqueue a notification message to the specified queue

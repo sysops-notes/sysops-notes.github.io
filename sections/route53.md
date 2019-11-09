@@ -77,11 +77,11 @@
 ### Latency routing policy
 
 * Redirects to a server which has the least latency to you
-* Asks which aws region is the IP is in
+* Asks which aws region the IP is in
 
 ### Failover routing policy
 
-* Must be a primary and a secondary endpoint
+* Must be a __primary__ and a __secondary__ endpoint
 * Must have a health check created for the primary endpoint
 * Automatically switches when health check failed
 

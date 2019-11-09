@@ -33,9 +33,9 @@
 	* Similar syntax to IAMs
 	* It's a filter to IAMs
 * Helpful for
-	* sandbox account creation
-	* separate dev and prod
-	* only allow approved services
+	* Sandbox account creation
+	* Separate dev and prod
+	* Only allow approved services
 
 ## Service catalog
 

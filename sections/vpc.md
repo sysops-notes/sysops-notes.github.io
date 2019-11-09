@@ -11,10 +11,10 @@
 	* /31 := 2^1 = 2 IP
 	* /30 := 2^2 = 4 IP
 	* /29 := 2^3 = 8 IP
-	* /28 := 2^4 = 16 IP
-	* /27 := 2^5 = 32 IP
-	* /26 := 2^6 = 64 IP
-	* /25 := 2^7 = 128 IP
+	* __/28 := 2^4 = 16 IP__
+	* __/27 := 2^5 = 32 IP__
+	* __/26 := 2^6 = 64 IP__
+	* __/25 := 2^7 = 128 IP__
 
 ### Private IP
 
@@ -207,12 +207,13 @@ Need at least /26. (/26 –> 64 - 5 = 59 IPs)
 * Logs can go directly to S3 / CloudWatch Logs
 * Captures information from AWS managed interfaces too: ELB, RDS, ElastiCache, Redshift, WorkSpaces
 * Syntax
-	* `<version> <account-id> <interface-id> __<srcaddr>__ __<dstaddr>__ __<srcport>__ __<dstport>__ <protocol> <packets> <bytes> <start> <end> __<action>__ <log-status>`
-	* `srcaddr` and `dstaddr`: Identify problematic IPs
-	* `srcport` and `dstport`: Identify problematic Ports
-	* `action`: ACCEPT/REJECT due to Security groups/Network ACL
+	* `<version> <account-id> <interface-id> <srcaddr> <dstaddr> <srcport> <dstport> <protocol> <packets> <bytes> <start> <end> <action> <log-status>`
+	* __`srcaddr`__ and __`dstaddr`__: Identify problematic IPs
+	* __`srcport`__ and __`dstport`__: Identify problematic Ports
+	* __`action`__: ACCEPT/REJECT due to Security groups/Network ACL
 * Can be used for analytics on usage patterns, malicious behavior
-* S3 –> Athena, CloudWatch Logs –> CloudWatch Insights
+	* S3 –> Athena
+	* CloudWatch Logs –> CloudWatch Insights
 
 ## Bastion hosts
 

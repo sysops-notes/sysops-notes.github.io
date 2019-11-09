@@ -1,4 +1,4 @@
-# [API Gateway](../README.md)
+# [Lambda](../README.md)
 
 ## General
 
@@ -44,7 +44,6 @@
 
 * Each Lambda function has associated configuration information, such as its name, description, entry point, and resource requirements
 * Each Lambda function receives `500MB of non-persistent disk space` in its own /tmp directory.
-http://jayendrapatil.com/aws-lambda/
 * Design Lambda function as stateless
 	* State can be maintained externally in DynamoDB or S3
 * Lambda function can be granted permissions to access other resources using an IAM role
